@@ -1,0 +1,13 @@
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\bin\Debug\netcoreapp3.1\Labs.exe
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\bin\Debug\netcoreapp3.1\Labs.deps.json
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\bin\Debug\netcoreapp3.1\Labs.runtimeconfig.json
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\bin\Debug\netcoreapp3.1\Labs.runtimeconfig.dev.json
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\bin\Debug\netcoreapp3.1\Labs.dll
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\bin\Debug\netcoreapp3.1\Labs.pdb
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.csprojAssemblyReference.cache
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.AssemblyInfoInputs.cache
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.AssemblyInfo.cs
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.csproj.CoreCompileInputs.cache
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.dll
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.pdb
+C:\Users\charl\source\repos\CodeSignalSolution\Labs\obj\Debug\netcoreapp3.1\Labs.genruntimeconfig.cache

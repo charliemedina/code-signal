@@ -1,0 +1,9 @@
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\bin\Debug\netcoreapp3.1\CodeSignalSolution.deps.json
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\bin\Debug\netcoreapp3.1\CodeSignalSolution.dll
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\bin\Debug\netcoreapp3.1\CodeSignalSolution.pdb
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.csprojAssemblyReference.cache
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.AssemblyInfoInputs.cache
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.AssemblyInfo.cs
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.csproj.CoreCompileInputs.cache
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.dll
+C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.pdb
