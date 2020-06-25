@@ -87,10 +87,35 @@ namespace Labs
 
             #endregion
 
+            #region Matrix Element Sum
+
+            int[] array1 = new int[4] { 0, 1, 1, 2 };
+            int[] array2 = new int[4] { 0, 5, 0, 0 };
+            int[] array3 = new int[4] { 2, 0, 3, 3 };
+            int[][] matrix = new int[][] { array1, array2, array3 };
+
+
+            sw.Start();
+            _ = MyMatrixElementsSum(matrix);
+            sw.Stop();
+            elapsedTime1 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            sw.Start();
+            _ = MatrixElementsSum(matrix);
+            sw.Stop();
+            elapsedTime2 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            Console.WriteLine("\n********* Matrix Element Sum **********\n");
+            Console.WriteLine($"MyMatrixElementsSum is : {elapsedTime1}ms\nMatrixElementsSum is : {elapsedTime2}ms");
+
+            #endregion
+
             Console.ReadLine();
         }
 
-        public static int MyAdjacentElementsProduct(int[] inputArray)
+        static int MyAdjacentElementsProduct(int[] inputArray)
         {
             var maxProduct = int.MinValue;
             for (int i = 0; i < inputArray.Length - 1; i++)
@@ -105,21 +130,21 @@ namespace Labs
 
             return maxProduct;
         }
-        public static int AdjacentElementsProduct(int[] inputArray)
+        static int AdjacentElementsProduct(int[] inputArray)
         {
             return inputArray.Select((i, j) => j > 0 ? i * inputArray[j - 1] : int.MinValue).Max();
         }
 
-        public static int MyShapeArea(int n)
+        static int MyShapeArea(int n)
         {
             return n == 1 ? 1 : (n * 4) - 4 + MyShapeArea(n - 1);
         }
-        public static int ShapeArea(int n)
+        static int ShapeArea(int n)
         {
             return n * n + (n - 1) * (n - 1);
         }
 
-        public static int MyMakeArrayConsecutive2Solution(int[] statues)
+        static int MyMakeArrayConsecutive2Solution(int[] statues)
         {
             Array.Sort(statues);
 
@@ -129,12 +154,12 @@ namespace Labs
 
             return max - min - length + 1;
         }
-        public static int MakeArrayConsecutive2Solution2(int[] statues)
+        static int MakeArrayConsecutive2Solution2(int[] statues)
         {
             return statues.Max() - statues.Min() - statues.Length + 1;
         }
 
-        public static bool MyAlmostIncreasingSequence(int[] sequence)
+        static bool MyAlmostIncreasingSequence(int[] sequence)
         {
             bool oneBreak = false;
 
@@ -169,7 +194,7 @@ namespace Labs
 
             return true;
         }
-        public static bool AlmostIncreasingSequence(int[] sequence)
+        static bool AlmostIncreasingSequence(int[] sequence)
         {
             if (sequence.Length == 2) { return true; }
             int countOne = 0;
@@ -197,6 +222,37 @@ namespace Labs
             {
                 return false;
             }
+        }
+
+        static int MyMatrixElementsSum(int[][] matrix)
+        {
+            int totalSum = 0;
+
+            for (int column = 0; column < matrix[0].Length; column++)
+            {
+                for (int row = 0; row < matrix.Length; row++)
+                {
+                    if (matrix[row][column] != 0)
+                    {
+                        totalSum += matrix[row][column];
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return totalSum;
+        }
+        static int MatrixElementsSum(int[][] matrix)
+        {
+            int r = 0;
+            for (int i = 0; i < matrix[0].Length; i++)
+                for (int j = 0; j < matrix.Length && matrix[j][i] > 0; j++)
+                    r += matrix[j][i];
+
+            return r;
         }
 
     }

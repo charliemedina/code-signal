@@ -7,3 +7,12 @@ C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netc
 C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.csproj.CoreCompileInputs.cache
 C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.dll
 C:\Users\charl\source\repos\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.pdb
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\bin\Debug\netcoreapp3.1\CodeSignalSolution.deps.json
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\bin\Debug\netcoreapp3.1\CodeSignalSolution.dll
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\bin\Debug\netcoreapp3.1\CodeSignalSolution.pdb
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.csprojAssemblyReference.cache
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.AssemblyInfoInputs.cache
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.AssemblyInfo.cs
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.csproj.CoreCompileInputs.cache
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.dll
+D:\Study\code-signal\CodeSignalSolution\CodeSignalSolution\obj\Debug\netcoreapp3.1\CodeSignalSolution.pdb

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj": {}
+    "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj": {
+    "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj",
+        "projectUniqueName": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj",
         "projectName": "CodeSignalSolution",
-        "projectPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj",
+        "projectPath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj",
         "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalSolution\\obj\\",
+        "outputPath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalSolution\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -66,14 +66,14 @@
         }
       }
     },
-    "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj": {
+    "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
+        "projectUniqueName": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
         "projectName": "CodeSignalTest",
-        "projectPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
+        "projectPath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
         "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalTest\\obj\\",
+        "outputPath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -93,8 +93,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj": {
-                "projectPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj"
+              "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj": {
+                "projectPath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalSolution\\CodeSignalSolution.csproj"
               }
             }
           }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\Labs\\Labs.csproj": {}
+    "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj": {}
   },
   "projects": {
-    "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\Labs\\Labs.csproj": {
+    "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\Labs\\Labs.csproj",
+        "projectUniqueName": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj",
         "projectName": "Labs",
-        "projectPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\Labs\\Labs.csproj",
+        "projectPath": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj",
         "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\Labs\\obj\\",
+        "outputPath": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

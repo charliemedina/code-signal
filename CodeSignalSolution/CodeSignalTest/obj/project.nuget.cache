@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f1W5MMn5RBxMg0GcoCQS0u3jrllB/16C7sC6tIOiwZsZD//W+3hy6AtM4LZbtSp0717XpABaZRzUY8SZTE3i/Q==",
+  "dgSpecHash": "Qja97ywFzD/TPGTBcQgaU0MzeRbJ3lp/JrWWDwGcAP9LQ5qpuHB3LS6Y4+Vq/2dpJYVwV+ss9bUvqpvOA8rlgQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\charl\\source\\repos\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
+  "projectFilePath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\charl\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

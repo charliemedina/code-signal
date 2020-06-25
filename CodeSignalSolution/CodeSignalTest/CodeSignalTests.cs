@@ -7,6 +7,8 @@ namespace CodeSignalTest
     [TestClass]
     public class CodeSignalTests
     {
+        /**************      Intro     **************/
+
         #region The Journey Begins
 
         [TestMethod]
@@ -133,6 +135,107 @@ namespace CodeSignalTest
 
             Assert.AreEqual(expected, result);
         }
+
+        [TestMethod]
+        [DataRow(new[] { 0, 1, 1, 2 }, new[] { 0, 5, 0, 0 }, new[] { 2, 0, 3, 3 }, 9)]
+        [DataRow(new[] { 1, 1, 1, 0 }, new[] { 0, 5, 0, 1 }, new[] { 2, 1, 3, 10 }, 9)]
+        [DataRow(new[] { 1, 1, 1 }, new[] { 2, 2, 2 }, new[] { 3, 3, 3 }, 18)]
+        [DataRow(new[] { 1, 0, 3 }, new[] { 0, 2, 1 }, new[] { 1, 2, 0 }, 5)]
+        [DataRow(new[] { 2 }, new[] { 5 }, new[] { 10 }, 17)]
+        public void MatrixElementsSum(int[] a, int[] b, int[] c, int expected)
+        {
+            int[][] matrix = new int[][] { a, b, c };
+
+            var result = Solution.MatrixElementsSum(matrix);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        #endregion
+
+        /**************      The Core     **************/
+
+        #region Core
+
+        [TestMethod]
+        [DataRow(16, 11, 5, 3, 96)]
+        [DataRow(1, 1, 1, 1, 0)]
+        [DataRow(13, 6, 8, 3, 18)]
+        [DataRow(60, 100, 60, 1, 99)]
+        [DataRow(1000, 1000, 1000, 1000, 0)]
+        public void SeatsInTheater(int nCols, int nRows, int col, int row, int expected)
+        {
+            var result = Solution.SeatsInTheater(nCols, nRows, col, row);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(3, 10, 9)]
+        [DataRow(2, 7, 6)]
+        [DataRow(10, 50, 50)]
+        [DataRow(7, 100, 98)]
+        [DataRow(7, 20, 14)]
+        [DataRow(5, 13, 10)]
+        [DataRow(8, 88, 88)]
+        [DataRow(10, 100, 100)]
+        [DataRow(2, 5, 4)]
+        [DataRow(3, 5, 3)]
+        [DataRow(9, 11, 9)]
+        [DataRow(8, 15, 8)]
+        [DataRow(9, 60, 54)]
+        public void MaxMultiple(int divisor, int bound, int expected)
+        {
+            var result = Solution.MaxMultiple(divisor, bound);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(10, 2, 7)]
+        [DataRow(10, 7, 2)]
+        [DataRow(4, 1, 3)]
+        [DataRow(6, 3, 0)]
+        [DataRow(18, 6, 15)]
+        [DataRow(12, 10, 4)]
+        [DataRow(18, 5, 14)]
+        public void CircleOfNumbers(int n, int firstNumber, int expected)
+        {
+            var result = Solution.CircleOfNumbers(n, firstNumber);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(240, 4)]
+        [DataRow(808, 14)]
+        [DataRow(1439, 19)]
+        [DataRow(0, 0)]
+        [DataRow(23, 5)]
+        [DataRow(8, 8)]
+        [DataRow(808, 14)]
+        [DataRow(808, 14)]
+        public void LateRide(int n, int expected)
+        {
+            var result = Solution.LateRide(n);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(3, 1, 2, 20, 14)]
+        [DataRow(2, 2, 1, 2, 1)]
+        [DataRow(10, 1, 2, 22, 11)]
+        [DataRow(2, 2, 1, 24, 14)]
+        [DataRow(1, 2, 1, 6, 3)]
+        [DataRow(10, 10, 10, 8, 0)]
+        public void PhoneCall(int min1, int min2_10, int min11, int s, int expected)
+        {
+            var result = Solution.PhoneCall(min1, min2_10, min11, s);
+
+            Assert.AreEqual(expected, result);
+        }
+
 
         #endregion
     }
