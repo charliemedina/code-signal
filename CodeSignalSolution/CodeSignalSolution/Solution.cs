@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 
 namespace CodeSignalSolution
 {
@@ -121,6 +124,145 @@ namespace CodeSignalSolution
 
         #endregion
 
+        #region Smooth Sailing
+
+        public static string[] AllLongestStrings(string[] inputArray)
+        {
+            if (inputArray.Length == 1)
+            {
+                return inputArray;
+            }
+
+            var result = inputArray[0];
+            var maxLenght = result.Length;
+
+            for (int i = 1; i < inputArray.Length; i++)
+            {
+                var currentLength = inputArray[i].Length;
+                var currentString = inputArray[i];
+
+                if (maxLenght == currentLength)
+                {
+                    result += "," + currentString;
+                }
+                if(maxLenght < currentLength)
+                {
+                    result = currentString;
+                    maxLenght = currentLength;
+                }
+            }
+
+            return result.Split(',');
+        }
+
+        public static int CommonCharacterCount(string s1, string s2)
+        {
+            var min = s1.Length >= s2.Length ? s1 : s2;
+            var max = min.Length == s1.Length ? s2 : s1;
+
+            var marks = new bool[max.Length];
+
+            int count = 0;
+
+            for (int i = 0; i < min.Length; i++)
+            {
+                for (int j = 0; j < max.Length; j++)
+                {
+                    if (min[i] == max[j] && !marks[j])
+                    {
+                        count++;
+                        marks[j] = true;
+                        break;
+                    }
+                }
+            }
+
+            return count;
+        }
+
+        public static bool IsLucky(int n)
+        {
+            var s = n.ToString();
+
+            int sum1 = 0, sum2 = 0;
+
+            for (int i = 0; i < s.Length / 2; i++)
+            {
+                sum1 += s[i] - '0';
+                sum2 += s[s.Length - i - 1] - '0';
+            }
+
+            return sum1 == sum2;
+
+            //var N = n.ToString();
+            //n = N.Length / 2;
+            //return N.Substring(n).Sum(_ => _ - '0') == N.Remove(n).Sum(_ => _ - '0');
+        }
+
+        public static bool IsLucky1(int n)
+        {
+            var s = n.ToString();
+
+            int sum1 = 0, sum2 = 0;
+
+            for (int i = 0; i < s.Length / 2; i++)
+            {
+                sum1 += s[i] - '0';
+                sum2 += s[s.Length - i - 1] - '0';
+            }
+
+            return sum1 == sum2;
+
+            //var N = n.ToString();
+            //n = N.Length / 2;
+            //return N.Substring(n).Sum(_ => _ - '0') == N.Remove(n).Sum(_ => _ - '0');
+        }
+
+        public static int[] SortByHeight(int[] a)
+        {
+            var indexes = new List<int>();
+            var values = new List<int>();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] >= 0)
+                {
+                    indexes.Add(i);
+                    values.Add(a[i]);
+                }
+            }
+
+            values.Sort();
+
+            for (int i = 0; i < values.Count; i++)
+            {
+                a[indexes[i]] = values[i];
+            }
+
+            return a;
+        }
+
+        public static string ReverseInParentheses(string inputString)
+        {
+            int lastOpenParen = inputString.LastIndexOf('(');
+
+            if (lastOpenParen == -1)
+            {
+                return inputString;
+            }
+            else
+            {
+                int firstClosedParen = inputString.IndexOf(')', lastOpenParen);
+
+                return ReverseInParentheses(
+                    inputString.Substring(0, lastOpenParen)
+                    + new string(inputString.Substring(lastOpenParen + 1, firstClosedParen - lastOpenParen - 1).Reverse().ToArray())
+                    + inputString.Substring(firstClosedParen + 1));
+            }
+        }
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Intro Gates
@@ -176,7 +318,6 @@ namespace CodeSignalSolution
             }
             return 10 + (s - min1 - min2_10 * 9) / min11;
         }
-
 
         #endregion
     }

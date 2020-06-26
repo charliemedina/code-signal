@@ -1,6 +1,6 @@
 using CodeSignalSolution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace CodeSignalTest
 {
@@ -153,6 +153,95 @@ namespace CodeSignalTest
 
         #endregion
 
+        #region Smooth Sailing
+
+        [TestMethod]
+        [DynamicData(nameof(TestDataMethod), DynamicDataSourceType.Method)]
+        public void AllLongestStrings(string[] inputArray, string[] expected)
+        {
+            var result = Solution.AllLongestStrings(inputArray);
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        static IEnumerable<object[]> TestDataMethod()
+        {
+            return new[] {
+                new [] { new[] { "aba", "aa", "ad", "vcd", "aba" }, new[] { "aba", "vcd", "aba" } },
+                new [] { new[] { "aa" }, new[] { "aa" } },
+                new [] { new[] { "abc", "eeee", "abcd", "dcd" }, new[] { "eeee", "abcd" } },
+                new [] { new[] {"a", "abc", "cbd", "zzzzzz", "a", "abcdef", "asasa", "aaaaaa" }, new[] { "zzzzzz", "abcdef", "aaaaaa" } },
+                new [] { new[] { "enyky", "benyky", "yely", "varennyky" }, new[] { "varennyky" } },
+                new [] { new[] {"abacaba", "abacab", "abac", "xxxxxx" }, new[] { "abacaba" } },
+                new [] { new[] {"young", "yooooooung", "hot", "or", "not", "come", "on", "fire", "water", "watermelon"}, new[] { "yooooooung", "watermelon" } },
+                new [] { new[] { "lbgwyqkry" }, new[] { "lbgwyqkry" } },
+                new [] { new[] { "i" }, new[] { "i" } },
+            };
+        }
+
+        [TestMethod]
+        [DataRow("aabcc", "adcaa", 3)]
+        [DataRow("zzzz", "zzzzzzz", 4)]
+        [DataRow("abca", "xyzbac", 3)]
+        [DataRow("a", "b", 0)]
+        [DataRow("a", "aaa", 1)]
+        public void CommonCharacterCount(string s1, string s2, int expected)
+        {
+            var result = Solution.CommonCharacterCount(s1, s2);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+
+        [DataRow(1230, true)]
+        [DataRow(239017, false)]
+        [DataRow(134008, true)]
+        [DataRow(10, false)]
+        [DataRow(11, true)]
+        [DataRow(1010, true)]
+        [DataRow(261534, false)]
+        [DataRow(100000, false)]
+        [DataRow(999999, true)]
+        [DataRow(123321, true)]
+        public void IsLucky(int n, bool expected)
+        {
+            var result = Solution.IsLucky(n);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { -1, 150, 190, 170, -1, -1, 160, 180 }, new[] { -1, 150, 160, 170, -1, -1, 180, 190 })]
+        [DataRow(new[] { -1, -1, -1, -1, -1 }, new[] { -1, -1, -1, -1, -1 })]
+        [DataRow(new[] { -1 }, new[] { -1 })]
+        [DataRow(new[] { 4, 2, 9, 11, 2, 16 }, new[] { 2, 2, 4, 9, 11, 16 })]
+        [DataRow(new[] { 2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1 }, new[] { 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 2 })]
+        [DataRow(new[] { 23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3 }, new[] { 1, 3, -1, 23, 43, -1, -1, 54, -1, -1, -1, 77 })]
+
+        public void SortByHeight(int[] a, int[] expected)
+        {
+            var result = Solution.SortByHeight(a);
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("(bar)", "rab")]
+        [DataRow("foo(bar)baz", "foorabbaz")]
+        [DataRow("foo(bar)baz(blim)", "foorabbazmilb")]
+        [DataRow("()", "")]
+        [DataRow("(abc)d(efg)", "cbadgfe")]
+        public void ReverseInParentheses(string inputString, string expected)
+        {
+            var result = Solution.ReverseInParentheses(inputString);
+
+            Assert.AreEqual(expected, result);
+        }
+
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Core
@@ -235,6 +324,8 @@ namespace CodeSignalTest
 
             Assert.AreEqual(expected, result);
         }
+
+
 
 
         #endregion

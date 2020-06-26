@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 
 namespace Labs
@@ -112,7 +114,92 @@ namespace Labs
 
             #endregion
 
-            Console.ReadLine();
+            #region All Longest Strings
+
+            var inputArray = new[] { "young", "yooooooung", "hot", "or", "not", "come", "on", "fire", "water", "watermelon" };
+
+            sw.Start();
+            _ = MyAllLongestStrings(inputArray);
+            sw.Stop();
+            elapsedTime1 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            sw.Start();
+            _ = AllLongestStrings(inputArray);
+            sw.Stop();
+            elapsedTime2 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            Console.WriteLine("\n********* All Longest Strings **********\n");
+            Console.WriteLine($"MyAllLongestStrings is : {elapsedTime1}ms\nAllLongestStrings is : {elapsedTime2}ms");
+
+            #endregion
+
+            #region Common Character Count
+
+            var s1 = "abca";
+            var s2 = "xyzbac";
+
+            sw.Start();
+            _ = MyCommonCharacterCount(s1, s2);
+            sw.Stop();
+            elapsedTime1 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            sw.Start();
+            _ = CommonCharacterCount(s1, s2);
+            sw.Stop();
+            elapsedTime2 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            Console.WriteLine("\n********* Common Character Count **********\n");
+            Console.WriteLine($"MyCommonCharacterCount is : {elapsedTime1}ms\nCommonCharacterCount is : {elapsedTime2}ms");
+
+            #endregion
+
+            #region My Sort By Height
+
+            var a = new[] { -1, 150, 190, 170, -1, -1, 160, 180 };
+
+            sw.Start();
+            _ = MySortByHeight(a);
+            sw.Stop();
+            elapsedTime1 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            sw.Start();
+            _ = SortByHeight(a);
+            sw.Stop();
+            elapsedTime2 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            Console.WriteLine("\n********* Common Character Count **********\n");
+            Console.WriteLine($"MySortByHeight is : {elapsedTime1}ms\nSortByHeight is : {elapsedTime2}ms");
+
+            #endregion
+
+            #region Reverse In Parentheses
+
+            var inputString = "foo(bar(baz))blim";
+
+            sw.Start();
+            _ = MyReverseInParentheses(inputString);
+            sw.Stop();
+            elapsedTime1 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            sw.Start();
+            _ = ReverseInParentheses(inputString);
+            sw.Stop();
+            elapsedTime2 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            Console.WriteLine("\n********* Reverse In Parentheses **********\n");
+            Console.WriteLine($"MyReverseInParentheses is : {elapsedTime1}ms\nSortByHeight is : {elapsedTime2}ms");
+
+            #endregion
+
+            Console.ReadKey();
         }
 
         static int MyAdjacentElementsProduct(int[] inputArray)
@@ -253,6 +340,130 @@ namespace Labs
                     r += matrix[j][i];
 
             return r;
+        }
+
+        static string[] MyAllLongestStrings(string[] inputArray)
+        {
+            if (inputArray.Length == 1)
+            {
+                return inputArray;
+            }
+
+            var result = inputArray[0];
+            var maxLenght = result.Length;
+
+            for (int i = 1; i < inputArray.Length; i++)
+            {
+                var currentLength = inputArray[i].Length;
+                var currentString = inputArray[i];
+
+                if (maxLenght == currentLength)
+                {
+                    result += "," + currentString;
+                }
+                if (maxLenght < currentLength)
+                {
+                    result = currentString;
+                    maxLenght = currentLength;
+                }
+            }
+
+            return result.Split(',');
+        }
+        static object AllLongestStrings(string[] inputArray)
+        {
+            int len = inputArray.Max(_ => _.Length);
+            return inputArray.Where(_ => _.Length == len);
+        }
+
+        static int MyCommonCharacterCount(string s1, string s2)
+        {
+            var min = s1.Length >= s2.Length ? s1 : s2;
+            var max = min.Length == s1.Length ? s2 : s1;
+
+            var marks = new bool[max.Length];
+
+            int count = 0;
+
+            for (int i = 0; i < min.Length; i++)
+            {
+                for (int j = 0; j < max.Length; j++)
+                {
+                    if (min[i] == max[j] && !marks[j])
+                    {
+                        count++;
+                        marks[j] = true;
+                        break;
+                    }
+                }
+            }
+
+            return count;
+        }
+        static int CommonCharacterCount(string s1, string s2)
+        {
+            return s1.Distinct().Sum(_ => Math.Min(s1.Count(l => l == _), s2.Count(l => l == _)));
+        }
+
+        static int[] MySortByHeight(int[] a)
+        {
+            var indexes = new List<int>();
+            var values = new List<int>();
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (a[i] >= 0)
+                {
+                    indexes.Add(i);
+                    values.Add(a[i]);
+                }
+            }
+
+            values.Sort();
+
+            for (int i = 0; i < values.Count; i++)
+            {
+                a[indexes[i]] = values[i];
+            }
+
+            return a;
+        }
+        static object SortByHeight(int[] a)
+        {
+            var people = a.Where(p => p >= 0).OrderBy(p => p).ToArray();
+            int i = 0;
+
+            return a.Select(p => p >= 0 ? people[i++] : -1);
+        }
+
+        static string MyReverseInParentheses(string inputString)
+        {
+            int lastOpenParen = inputString.LastIndexOf('(');
+
+            if (lastOpenParen == -1)
+            {
+                return inputString;
+            }
+            else
+            {
+                int firstClosedParen = inputString.IndexOf(')', lastOpenParen);
+
+                return MyReverseInParentheses(
+                    inputString.Substring(0, lastOpenParen)
+                    + new string(inputString.Substring(lastOpenParen + 1, firstClosedParen - lastOpenParen - 1).Reverse().ToArray())
+                    + inputString.Substring(firstClosedParen + 1));
+            }
+        }
+        static string ReverseInParentheses(string inputString)
+        {
+            while (inputString.Contains("("))
+            {
+                int i = inputString.LastIndexOf("(");
+                var s = new string(inputString.Skip(i + 1).TakeWhile(x => x != ')').Reverse().ToArray());
+                var t = "(" + new string(s.Reverse().ToArray()) + ")";
+                inputString = inputString.Replace(t, s);
+            }
+            return inputString;
         }
 
     }
