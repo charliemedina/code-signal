@@ -145,7 +145,7 @@ namespace CodeSignalSolution
                 {
                     result += "," + currentString;
                 }
-                if(maxLenght < currentLength)
+                if (maxLenght < currentLength)
                 {
                     result = currentString;
                     maxLenght = currentLength;
@@ -259,6 +259,88 @@ namespace CodeSignalSolution
                     + new string(inputString.Substring(lastOpenParen + 1, firstClosedParen - lastOpenParen - 1).Reverse().ToArray())
                     + inputString.Substring(firstClosedParen + 1));
             }
+        }
+
+        #endregion
+
+        #region Exploring the Waters
+
+        public static int[] AlternatingSums(int[] a)
+        {
+            int team1 = 0, team2 = 0;
+            for (int i = 0; i < a.Length; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    team1 += a[i];
+                }
+                else
+                {
+                    team2 += a[i];
+                }
+            }
+
+            return new[] { team1, team2 };
+        }
+
+        public static string[] AddBorder(string[] picture)
+        {
+            List<string> result = new List<string>();
+
+            string horizontalBorder = new string('*', picture.First().Length + 2);
+
+            result.Add(horizontalBorder);
+
+            for (var i = 0; i < picture.Length; i++)
+            {
+                string row = "*";
+                for (var j = 0; j < picture[0].Length; j++)
+                {
+                    row += picture[i][j];
+                }
+                row += "*";
+                result.Add(row);
+            }
+            result.Add(horizontalBorder);
+            return result.ToArray();
+        }
+
+        public static bool AreSimilar(int[] a, int[] b)
+        {
+            var swapCount = a.Select((n, i) => i).Where(n => a[n] != b[n]).Count();
+
+            Array.Sort(a);
+            Array.Sort(b);
+            if (!a.SequenceEqual(b))
+            {
+                return false;
+            }
+
+            return swapCount <= 2;
+        }
+
+        public static int ArrayChange(int[] inputArray)
+        {
+            var moves = 0;
+
+            for (var i = 1; i < inputArray.Length; i++)
+            {
+                if (inputArray[i] <= inputArray[i - 1])
+                {
+                    var diff = inputArray[i - 1] - inputArray[i] + 1;
+                    inputArray[i] += diff;
+                    moves += diff;
+                }
+            }
+
+            return moves;
+        }
+
+        public static bool PalindromeRearranging(string inputString)
+        {
+            return inputString.GroupBy(c => c)
+                .Where(g => g.Count() % 2 != 0)
+                .Count() <= 1;
         }
 
         #endregion

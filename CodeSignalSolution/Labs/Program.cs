@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Labs
 {
@@ -12,6 +13,8 @@ namespace Labs
         {
             var sw = new Stopwatch();
             long elapsedTime1, elapsedTime2;
+
+            Console.WriteLine("\n--------------------------------------------- Code Signal ---------------------------------------------");
 
             #region Adjacent Element Product
 
@@ -196,6 +199,58 @@ namespace Labs
 
             Console.WriteLine("\n********* Reverse In Parentheses **********\n");
             Console.WriteLine($"MyReverseInParentheses is : {elapsedTime1}ms\nSortByHeight is : {elapsedTime2}ms");
+
+            #endregion
+
+            #region Add Border
+
+            var picture = new[] { "abcde", "fghij", "klmno", "pqrst", "uvwxy" };
+
+            sw.Start();
+            _ = MyAddBorder(picture);
+            sw.Stop();
+            elapsedTime1 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            sw.Start();
+            _ = AddBorder(picture);
+            sw.Stop();
+            elapsedTime2 = sw.ElapsedMilliseconds;
+            sw.Reset();
+
+            Console.WriteLine("\n********* Add Border **********\n");
+            Console.WriteLine($"MyAddBorder is : {elapsedTime1}ms\nAddBorder is : {elapsedTime2}ms");
+
+            #endregion
+
+            #region Complements
+
+            Console.WriteLine("\n--------------------------------------------- Complements ---------------------------------------------");
+
+            Console.WriteLine("\n********* Rotar Matrices **********\n");
+            int[,] matrix1 = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
+            Complements.RotaMatriz(matrix1, 2);
+            Print2DArray(matrix1);
+
+            Console.WriteLine();
+
+            int[,] matrix2 = new int[3, 3] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            Complements.RotaMatriz(matrix2, -3);
+            Print2DArray(matrix2);
+
+            Console.WriteLine("\n********* Sistemas de Numeración **********\n");
+            Console.WriteLine($"ParseInt is : {Complements.ParseInt("baac", new[] { 'a', 'b', 'c' })}");
+
+            Console.WriteLine("\n********* Int To String **********\n");
+            Console.WriteLine($"IntToString is : {Complements.IntToString(29, new[] { 'a', 'b', 'c' })}");
+
+            Console.WriteLine("\n********* Construcción de Aeropuerto **********\n");
+            int[,] terreno = new int[4, 6] { { 4, 3, 5, 1, 2, 1 }, { 2, 7, 6, 3, 2, 3 }, { 3, 8, 5, 2, 2, 3 }, { 5, 7, 6, 4, 2, 3 } };
+            Print2DArray(terreno);
+            Console.WriteLine();
+            Console.WriteLine($"LocateAirport is : {Complements.LocateAirport(terreno, 3, 2)}");
+            Console.WriteLine();
+            PrintArray(Complements.GetDimensions(terreno, 3, 2));
 
             #endregion
 
@@ -466,5 +521,52 @@ namespace Labs
             return inputString;
         }
 
+        static string[] MyAddBorder(string[] picture)
+        {
+            List<string> result = new List<string>();
+
+            string horizontalBorder = new string('*', picture.First().Length + 2);
+
+            result.Add(horizontalBorder);
+
+            for (var i = 0; i < picture.Length; i++)
+            {
+                string row = "*";
+                for (var j = 0; j < picture[0].Length; j++)
+                {
+                    row += picture[i][j];
+                }
+                row += "*";
+                result.Add(row);
+            }
+            result.Add(horizontalBorder);
+            return result.ToArray();
+        }
+        static string[] AddBorder(string[] picture)
+        {
+            var stars = new string[] { new string('*', picture[0].Length + 2) };
+            return stars.Concat(picture.Select(s => "*" + s + "*"))
+                .Concat(stars)
+                .ToArray();
+        }
+
+        public static void PrintArray<T>(T[] array)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i] + "\t");
+            }
+        }
+        public static void Print2DArray<T>(T[,] matrix)
+        {
+            for (int i = 0; i < matrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < matrix.GetLength(1); j++)
+                {
+                    Console.Write(matrix[i, j] + "\t");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }

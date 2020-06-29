@@ -1,6 +1,7 @@
 using CodeSignalSolution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Data;
 
 namespace CodeSignalTest
 {
@@ -156,7 +157,7 @@ namespace CodeSignalTest
         #region Smooth Sailing
 
         [TestMethod]
-        [DynamicData(nameof(TestDataMethod), DynamicDataSourceType.Method)]
+        [DynamicData(nameof(AllLongestStringsDynamic), DynamicDataSourceType.Method)]
         public void AllLongestStrings(string[] inputArray, string[] expected)
         {
             var result = Solution.AllLongestStrings(inputArray);
@@ -164,7 +165,7 @@ namespace CodeSignalTest
             CollectionAssert.AreEqual(expected, result);
         }
 
-        static IEnumerable<object[]> TestDataMethod()
+        static IEnumerable<object[]> AllLongestStringsDynamic()
         {
             return new[] {
                 new [] { new[] { "aba", "aa", "ad", "vcd", "aba" }, new[] { "aba", "vcd", "aba" } },
@@ -218,7 +219,6 @@ namespace CodeSignalTest
         [DataRow(new[] { 4, 2, 9, 11, 2, 16 }, new[] { 2, 2, 4, 9, 11, 16 })]
         [DataRow(new[] { 2, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1 }, new[] { 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 2 })]
         [DataRow(new[] { 23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3 }, new[] { 1, 3, -1, 23, 43, -1, -1, 54, -1, -1, -1, 77 })]
-
         public void SortByHeight(int[] a, int[] expected)
         {
             var result = Solution.SortByHeight(a);
@@ -239,6 +239,114 @@ namespace CodeSignalTest
             Assert.AreEqual(expected, result);
         }
 
+        #endregion
+
+        #region Exploring the Waters
+
+        [TestMethod]
+        [DataRow(new[] { 50, 60, 60, 45, 70 }, new[] { 180, 105 })]
+        [DataRow(new[] { 100, 50 }, new[] { 100, 50 })]
+        [DataRow(new[] { 80 }, new[] { 80, 0 })]
+        [DataRow(new[] { 100, 50, 50, 100 }, new[] { 150, 150 })]
+        [DataRow(new[] { 100, 51, 50, 100 }, new[] { 150, 151 })]
+        public void AlternatingSums(int[] a, int[] expected)
+        {
+            var result = Solution.AlternatingSums(a);
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new string[] { "aa", "**", "zz" })]
+        public void AddBorder(string[] picture)
+        {
+            var result = Solution.AddBorder(picture);
+
+            CollectionAssert.AreEqual(new string[] { "****", "*aa*", "****", "*zz*", "****" }, result);
+        }
+
+        [TestMethod]
+        [DynamicData(nameof(AllLongestStringsDynamic), DynamicDataSourceType.Method)]
+        public void AddBorder(string[] inputArray, string[] expected)
+        {
+            var result = Solution.AllLongestStrings(inputArray);
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        static IEnumerable<object[]> AddBorderDynamic()
+        {
+            return new[] {
+                new [] { new[] { "aa", "**", "zz"  }, new[] { "****", "*aa*", "****", "*zz*", "****" } },
+                new [] { new[] { "a" }, new[] { "***", "*a*", "***" } },
+                new [] { new[] { "aa", "**", "zz" }, new[] { "****", "*aa*", "****", "*zz*", "****" } },
+                new [] { new[] { "abcde", "fghij", "klmno", "pqrst", "uvwxy" }, new[] { "*******", "*abcde*", "*fghij*", "*klmno*", "*pqrst*", "*uvwxy*", "*******" } },
+                new [] { new[] { "wzy**" }, new[] { "*******", "*wzy***", "*******" } }
+            };
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 1, 2, 3 }, new[] { 1, 2, 3 }, true)]
+        [DataRow(new[] { 1, 2, 3 }, new[] { 2, 1, 3 }, true)]
+        [DataRow(new[] { 1, 2, 2 }, new[] { 2, 1, 1 }, false)]
+        [DataRow(new[] { 1, 1, 4 }, new[] { 1, 2, 3 }, false)]
+        [DataRow(new[] { 1, 2, 3 }, new[] { 1, 10, 2 }, false)]
+        [DataRow(new[] { 2, 3, 1 }, new[] { 1, 3, 2 }, true)]
+        [DataRow(new[] { 2, 3, 9 }, new[] { 10, 3, 2 }, false)]
+        [DataRow(new[] { 4, 6, 3 }, new[] { 3, 4, 6 }, false)]
+        [DataRow(new[] { 832, 998, 148, 570, 533, 561, 894, 147, 455, 279 }, new[] { 832, 998, 148, 570, 533, 561, 455, 147, 894, 279 }, true)]
+        [DataRow(new[] { 832, 998, 148, 570, 533, 561, 894, 147, 455, 279 }, new[] { 832, 570, 148, 998, 533, 561, 455, 147, 894, 279 }, false)]
+        public void AreSimilar(int[] a, int[] b, bool expected)
+        {
+            var result = Solution.AreSimilar(a, b);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 1, 1, 1 }, 3)]
+        [DataRow(new[] { -1000, 0, -2, 0 }, 5)]
+        [DataRow(new[] { 2, 1, 10, 1 }, 12)]
+        [DataRow(new[] { 2, 3, 3, 5, 5, 5, 4, 12, 12, 10, 15 }, 13)]
+        [DataRow(new[] { 3122, -645, 2616, 13213, -8069 }, 25559)]
+        [DataRow(new[] { -787, -773, -93, 867, -28, 118, 372, 255, 355, 598, -179, -752, 794, 961, -84, 296, -714, 14, 666,
+            -265, -905, 942, -691, -379, -698, -650, 637, 523, 709, -674, 574, -239, 805, -434, 597, -677, 664, 384, 726, -389,
+            -387, 772, -603, 685, 249, 446, -631, 454, 983, 867, -158, 932, -440, 891, -12, 400, -916, 503, 185, -802, -255, 207,
+            -952, -506, -689, 425, 747, -907, -30, 102, 553, 981, -664, 75, -957, -42, 99, -750, -277, 686, -884, -972, 470, 32,
+            439, 163, 887, 895, -555, -654, 793, 333, 143, 73, 181, -512, -915, -68, 542, 799 }, 89510)]
+        [DataRow(new[] { -28943, -29728, -24726, -15090, -2555, -9551, -11025, 36442, -23240, -46093, 48516, 44580, -21573, 39172, -38017,
+            -19354, -13460, 38212, -35646, -22288, 36832, -33115, 39055, -15935, -19300, -10419, -18548, 21742, -32032, 27988, -45323,
+            27454, -5683, -14209, -4168, 51188, 45552, 9899, 49241, -25939, -8344, -25788, 6808, 6931, 6145, -30802, -518, -42362 }, 2020705)]
+        [DataRow(new[] { 9796, 1283, -2825, 3870, -6727, -8616, -10191, -7727, 7074, 1580, -4583, 162, 2980, -3861, 9452, 8145, 1222, -1125, 5142,
+            -5657, -974, -986, -9627, 5244, 8866, 3336, -9946, -5271, 10582, 3013, 8030, 4471, -3420, 9496, -3533, -8030, 10007, 2549, -8195, 7119,
+            302, -5322, -3537, 209, -8134, -9176, 6336, -1771, 9851, 3644, 9629, -2603, 3988, 10579, 2221, 1101, 1465, 5002, -6203, -8864, 596, 6005,
+            4554, 8526, 2178, -5447, -232, -9734, 7402, -3984, -7161, -2139, -3181, 10445, 4535, 6926, 7156 }, 737073)]
+        [DataRow(new[] { -24875, -6401, 58256, 44456, 2244, -25333, -42389, -5975, 7650, -46343, -62011, -55366, 7802, -37699, 15461, 13309, -58664,
+            54557, 56324, -34397, -33024, -21934, -18861, -23196, 56542, -63986, 59833, -45610, -16948, 399, -7405, 54701, -57348, -32627, 65534, 615 }, 2199614)]
+        public void ArrayChange(int[] inputArray, int expected)
+        {
+            var result = Solution.ArrayChange(inputArray);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("aabb", true)]
+        [DataRow("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc", false)]
+        [DataRow("abbcabb", true)]
+        [DataRow("zyyzzzzz", true)]
+        [DataRow("z", true)]
+        [DataRow("zaa", true)]
+        [DataRow("abca", false)]
+        [DataRow("abcad", false)]
+        [DataRow("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbccccaaaaaaaaaaaaa", false)]
+        [DataRow("abdhuierf", false)]
+        public void PalindromeRearranging(string inputString, bool expected)
+        {
+            var result = Solution.PalindromeRearranging(inputString);
+
+            Assert.AreEqual(expected, result);
+        }
 
         #endregion
 
