@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Qja97ywFzD/TPGTBcQgaU0MzeRbJ3lp/JrWWDwGcAP9LQ5qpuHB3LS6Y4+Vq/2dpJYVwV+ss9bUvqpvOA8rlgQ==",
+  "dgSpecHash": "wzK3oFLNs2MtsU7W71JgCz1goW0ZVuqluj/3xnVafMBxeH5Tc9PDU9yRT7bWjWGEdgvyZu8f7K09YW0cgyITwQ==",
   "success": true,
   "projectFilePath": "D:\\Study\\code-signal\\CodeSignalSolution\\CodeSignalTest\\CodeSignalTest.csproj",
   "expectedPackageFiles": [
@@ -90,8 +90,7 @@
     "C:\\Users\\charl\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\charl\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\charl\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
-    "C:\\Users\\charl\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\charl\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

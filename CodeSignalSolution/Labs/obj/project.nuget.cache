@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cs8ncQoKgWrUzBT3n5mdOUSGDtouER6RV3caY5X6mgKGRXvWJiEjXct/2L3fQ7+S+ZllKQz31z7bVAz6ypwL+g==",
+  "dgSpecHash": "qEu5pcF838Ah1Gks4iewFXQ+X6hO8uQnztvuglZ3Hd4AVrqO38RpT+k6+JLdxN5gC2KsuWumlGCbAOyWSNHpgQ==",
   "success": true,
   "projectFilePath": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\charl\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

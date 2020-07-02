@@ -350,6 +350,80 @@ namespace CodeSignalTest
 
         #endregion
 
+        #region Island of Knowledge
+
+        [TestMethod]
+        [DataRow(10, 15, 10, 15, true)]
+        [DataRow(15, 10, 15, 10, true)]
+        [DataRow(10, 15, 15, 9, false)]
+        [DataRow(5, 5, 10, 10, false)]
+        public void AreEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight, bool expected)
+        {
+            var result = Solution.AreEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 2, 4, 1, 0 }, 3)]
+        [DataRow(new[] { 1, 1, 1, 1 }, 0)]
+        [DataRow(new[] { -1, 4, 10, 3, -2 }, 7)]
+        [DataRow(new[] { 10, 11, 13 }, 2)]
+        [DataRow(new[] { -2, -2, -2, -2, -2 }, 0)]
+        [DataRow(new[] { -1, 1, -3, -4 }, 4)]
+        [DataRow(new[] { -14, 15, -15 }, 30)]
+        public void ArrayMaximalAdjacentDifference(int[] inputArray, int expected)
+        {
+            var result = Solution.ArrayMaximalAdjacentDifference(inputArray);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("172.16.254.1", true)]
+        [DataRow("172.316.254.1", false)]
+        [DataRow(".254.255.0", false)]
+        [DataRow("1.1.1.1a", false)]
+        [DataRow("1", false)]
+        [DataRow("0.254.255.0", true)]
+        [DataRow("1.23.256.255.", false)]
+        [DataRow("1.23.256..", false)]
+        [DataRow("0..1.0", false)]
+        [DataRow("64.233.161.00", false)]
+        [DataRow("01.233.161.131", false)]
+        [DataRow("35..36.9.9.0", false)]
+        [DataRow("1.1.1.1.1", false)]
+        [DataRow("1.256.1.1", false)]
+        [DataRow("a0.1.1.1", false)]
+        [DataRow("0.1.1.256", false)]
+        [DataRow("129380129831213981.255.255.255", false)]
+        [DataRow("255.255.255.255abcdekjhf", false)]
+        [DataRow("7283728", false)]
+        [DataRow("0..1.0.0", false)]
+        public void IsIPv4Address(string inputArray, bool expected)
+        {
+            var result = Solution.IsIPv4Address(inputArray);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 5, 3, 6, 7, 9 }, 4)]
+        [DataRow(new[] { 2, 3 }, 4)]
+        [DataRow(new[] { 1, 4, 10, 6, 2 }, 7)]
+        [DataRow(new[] { 1000, 999 }, 6)]
+        [DataRow(new[] { 19, 32, 11, 23 }, 3)]
+        [DataRow(new[] { 5, 8, 9, 13, 14 }, 6)]
+        public void AvoidObstacles(int[] inputArray, int expected)
+        {
+            var result = Solution.AvoidObstacles(inputArray);
+
+            Assert.AreEqual(expected, result);
+        }
+
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Core

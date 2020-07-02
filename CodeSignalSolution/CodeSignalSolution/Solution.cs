@@ -121,7 +121,6 @@ namespace CodeSignalSolution
             return totalSum;
         }
 
-
         #endregion
 
         #region Smooth Sailing
@@ -341,6 +340,83 @@ namespace CodeSignalSolution
             return inputString.GroupBy(c => c)
                 .Where(g => g.Count() % 2 != 0)
                 .Count() <= 1;
+        }
+
+        #endregion
+
+        #region Island of Knowledge
+
+        public static bool AreEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight)
+        {
+            return Math.Max(yourLeft, yourRight) == Math.Max(friendsLeft, friendsRight)
+                && yourLeft + yourRight == friendsLeft + friendsRight;
+        }
+
+        public static int ArrayMaximalAdjacentDifference(int[] inputArray)
+        {
+            int max = int.MinValue;
+            for (int i = 0; i < inputArray.Length - 1; i++)
+            {
+                int diff = Math.Abs(inputArray[i] - inputArray[i + 1]);
+                if (diff > max)
+                {
+                    max = diff;
+                }
+            }
+            return max;
+        }
+
+        public static bool IsIPv4Address(string inputString)
+        {
+            var ips = inputString.Split('.');
+            if (ips.Length != 4)
+            {
+                return false;
+            }
+            foreach (var s in ips)
+            {
+                if (!int.TryParse(s, out int ip) || s[0] == '0' && s.Length > 1)
+                {
+                    return false;
+                }
+                else
+                {
+                    if (ip < 0 || ip > 255)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        public static int AvoidObstacles(int[] inputArray)
+        {
+            int len = inputArray.Length;
+            int jump = 2;
+
+            while (true)
+            {
+                for (int i = 0; i < len; i++)
+                {
+                    if (inputArray[i] % jump == 0)
+                    {
+                        break;
+                    }
+                    if (i == len - 1)
+                    {
+                        return jump;
+                    }
+                }
+                jump++;
+            }
+
+            //int n = 2;
+            //while (inputArray.Any(_ => _ % n < 1))
+            //{
+            //    n++;
+            //}
+            //return n;
         }
 
         #endregion
