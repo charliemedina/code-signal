@@ -419,6 +419,61 @@ namespace CodeSignalSolution
             //return n;
         }
 
+        public static int[][] BoxBlur(int[][] image)
+        {
+            int x = image[0].Length - 2;
+            int y = image.Length - 2;
+            int[][] b = new int[y][];
+
+            for (int i = 0; i < y; i++)
+            {
+                b[i] = new int[x];
+                for (int j = 0; j < x; j++)
+                {
+                    b[i][j] = image[i][j] + image[i][j + 1] + image[i][j + 2] +
+                                image[i + 1][j] + image[i + 1][j + 1] + image[i + 1][j + 2] +
+                                image[i + 2][j] + image[i + 2][j + 1] + image[i + 2][j + 2];
+                    b[i][j] /= 9;
+                }
+            }
+            return b;
+        }
+
+        public static int[][] Minesweeper(bool[][] matrix)
+        {
+            int x = matrix[0].Length;
+            int y = matrix.Length;
+            int[][] result = new int[y][];
+
+            int[] dirY = { -1, 0, 1, -1, 1, -1, 0, 1 };
+            int[] dirX = { -1, -1, -1, 0, 0, 1, 1, 1 };
+
+            for (int i = 0; i < y; i++)
+            {
+                result[i] = new int[x];
+                for (int j = 0; j < x; j++)
+                {
+                    int neighboring = 0;
+                    for (int k = 0; k < 8; k++)
+                    {
+                        var row = j + dirX[k];
+                        var column = i + dirY[k];
+                        if (IsValid(column, row, x, y) && matrix[column][row] == true)
+                        {
+                            neighboring++;
+                        }
+                    }
+                    result[i][j] = neighboring;
+                }
+            }
+            return result;
+        }
+
+        private static bool IsValid(int column, int row, int x, int y)
+        {
+            return row >= 0 && row < x && column >= 0 && column < y;
+        }
+
         #endregion
 
         /**************      The Core     **************/

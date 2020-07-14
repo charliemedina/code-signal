@@ -1,5 +1,6 @@
 using CodeSignalSolution;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -421,8 +422,61 @@ namespace CodeSignalTest
             Assert.AreEqual(expected, result);
         }
 
+        [TestMethod]
+        [DynamicData(nameof(BoxBlurJaggedArraysDynamic), DynamicDataSourceType.Method)]
+        public void BoxBlur(int[][] inputArray, int[][] expected)
+        {
+            var result = Solution.BoxBlur(inputArray);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                CollectionAssert.AreEqual(expected[i], result[i]);
+            }
+        }
+        static IEnumerable<object[]> BoxBlurJaggedArraysDynamic()
+        {
+            return new[] {
+               new[] { new[] { new[] { 1, 1, 1 }, new[] { 1, 7, 1 }, new[] { 1, 1, 1 } }, new[] { new[] { 1 } } },
+               new[] { new[] { new[] { 0, 18, 9 }, new[] { 27, 9, 0 }, new[] { 81, 63, 45 } }, new[] { new[] { 28 } } },
+               new[] { new[] { new[] { 36, 0, 18, 9 }, new[] { 27, 54, 9, 0 }, new[] { 81, 63, 72, 45 } }, new[] { new[] { 40, 30 } } },
+               new[] { new[] { new[] { 7, 4, 0, 1 }, new[] { 5, 6, 2, 2 }, new[] { 6, 10, 7, 8 }, new[] { 1, 4, 2, 0 } }, new[] { new[] { 5, 4 }, new[] { 4, 4 } } },
+               new[] { new[] { new[] { 36, 0, 18, 9, 9, 45, 27 }, new[] { 27,0,54,9,0,63,90 }, new[] { 81, 63, 72, 45, 18, 27, 0 }, new[] { 0, 0, 9, 81, 27, 18, 45 },
+                    new[] { 45, 45, 27, 27, 90, 81, 72 }, new[] { 45, 18, 9, 0, 9, 18, 45 }, new[] { 27, 81, 36, 63, 63, 72, 81 } },
+                    new[] { new[] { 39, 30, 26, 25, 31 }, new[] { 34, 37, 35, 32, 32 }, new[] { 38, 41, 44, 46, 42 }, new[] { 22, 24, 31, 39, 45 }, new[] { 37, 34, 36, 47, 59 } } },
+            };
+        }
+
+        [TestMethod]
+        [DynamicData(nameof(MinesweeperJaggedArraysDynamic), DynamicDataSourceType.Method)]
+        public void Minesweeper(bool[][] matrix, int[][] expected)
+        {
+            var result = Solution.Minesweeper(matrix);
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                CollectionAssert.AreEqual(expected[i], result[i]);
+            }
+        }
+        static IEnumerable<object[]> MinesweeperJaggedArraysDynamic()
+        {
+            return new[] {
+               new object[] { new[] { new[] { true, false, false }, new[] { false, true, false }, new[] { false, false, false } },
+                              new[] { new[] { 1, 2, 1 }, new[] { 2, 1, 1 }, new[] { 1, 1, 1 } } },
+               new object[] { new[] { new[] { true, false, false }, new[] { false, true, false }, new[] { false, false, false } },
+                                      new[] { new[] { 1, 2, 1 }, new[] { 2, 1, 1 }, new[] { 1, 1, 1 } } },
+               new object[] { new[] { new[] { true, false, false, true }, new[] { false, false, true, false }, new[] { true, true, false, true } },
+                                      new[] { new[] { 0, 2, 2, 1 }, new[] { 3, 4, 3, 3 }, new[] { 1, 2, 3, 1 } } },
+               new object[] { new[] { new[] { true, true, true }, new[] { true, true, true }, new[] { true, true, true } },
+                                      new[] { new[] { 3, 5, 3 }, new[] { 5, 8, 5 }, new[] { 3, 5, 3 } } },
+               new object[] { new[] { new[] { false, true, true, false }, new[] { true, true, false, true }, new[] { false, false, true, false } },
+                                      new[] { new[] { 3, 3, 3, 2 }, new[] { 2, 4, 5, 2 }, new[] { 2, 3, 2, 2 } }  },
+               new object[] { new[] { new[] { true, false }, new[] { true, false }, new[] { false, true }, new[] { false, false }, new[] { false, false } },
+                                      new[] { new[] { 1, 2 }, new[] { 2, 3 }, new[] { 2, 1 }, new[] { 1, 1 }, new[] { 0, 0 } } }
+            };
+        }
 
         #endregion
+
 
         /**************      The Core     **************/
 
