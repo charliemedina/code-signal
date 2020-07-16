@@ -477,6 +477,74 @@ namespace CodeSignalTest
 
         #endregion
 
+        #region Rains of Reason
+
+        [TestMethod]
+        [DataRow(new[] { 1, 2, 1 }, 1, 3, new[] { 3, 2, 3 } )]
+        [DataRow(new[] { 2, 1 }, 3, 9, new[] { 2, 1 })]
+        [DataRow(new[] { 1, 2, 1, 2, 1 }, 2, 1, new[] { 1, 1, 1, 1, 1 })]
+        public void ArrayReplace(int[] inputArray, int elemToReplace, int substitutionElem, int[] expected)
+        {
+            var result = Solution.ArrayReplace(inputArray, elemToReplace, substitutionElem);
+
+            CollectionAssert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow( 248622, true)]
+        [DataRow(642386, false)]
+        [DataRow(1, false)]
+        [DataRow(8, true)]
+        [DataRow(468402800, true)]
+        [DataRow(5468428, false)]
+        public void EvenDigitsOnly(int n, bool expected)
+        {
+            var result = Solution.EvenDigitsOnly(n);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("var_1__Int", true)]
+        [DataRow("qq-q", false)]
+        [DataRow("2w2", false)]
+        [DataRow(" variable", false)]
+        [DataRow("va[riable0", false)]
+        public void VariableName(string name, bool expected)
+        {
+            var result = Solution.VariableName(name);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("crazy", "dsbaz")]
+        [DataRow("z", "a")]
+        [DataRow("aaaabbbccd", "bbbbcccdde")]
+        [DataRow("fuzzy", "gvaaz")]
+        [DataRow("codesignal", "dpeftjhobm")]
+        public void AlphabeticShift(string inputString, string expected)
+        {
+            var result = Solution.AlphabeticShift(inputString);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow("A1", "C3", true)]
+        [DataRow("A1", "H3", false)]
+        [DataRow("A1", "A2", false)]
+        [DataRow("A1", "B2", true)]
+        [DataRow("B3", "H8", false)]
+        [DataRow("C3", "B5", false)]
+        public void ChessBoardCellColor(string cell1, string cell2, bool expected)
+        {
+            var result = Solution.ChessBoardCellColor(cell1, cell2);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        #endregion
 
         /**************      The Core     **************/
 

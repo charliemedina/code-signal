@@ -476,6 +476,67 @@ namespace CodeSignalSolution
 
         #endregion
 
+        #region Rains of Reason
+
+        public static int[] ArrayReplace(int[] inputArray, int elemToReplace, int substitutionElem)
+        {
+            return inputArray.Select(it => it == elemToReplace ? substitutionElem : it).ToArray();
+        }
+
+        public static bool EvenDigitsOnly(int n)
+        {
+            while (n > 0)
+            {
+                if (n % 2 != 0) return false;
+                n /= 10;
+            }
+            return true;
+
+            // return n.ToString().All(_ => _ % 2 < 1);
+        }
+
+        public static bool VariableName(string name)
+        {
+            if (!char.IsLetter(name[0]) && name[0] != '_') return false;
+
+            for (int ix = 1; ix < name.Length; ++ix)
+            {
+                if (!char.IsLetterOrDigit(name[ix]) && name[ix] != '_') return false;
+            }
+            return true;
+        }
+
+        public static string AlphabeticShift(string inputString)
+        {
+            string result = string.Empty;
+
+            for (int i = 0; i < inputString.Length; i++)
+            {
+                if (inputString[i] == 'z')
+                {
+                    result += 'a';
+                }
+                else
+                {
+                    char c = inputString[i];
+                    result += ++c;
+                }
+            }
+            return result;
+
+            // return string.Concat(inputString.Select(_ => ++_ > 'z' ? 'a' : _));
+        }
+
+        public static bool ChessBoardCellColor(string cell1, string cell2)
+        {
+            var (cell1Column, cell1Row, cell2Column, cell2Row) = (cell1[0], cell1[1], cell2[0], cell2[1]);
+
+            return (cell1Row + cell2Row) % 2 == (cell1Column + cell2Column) % 2;
+        }
+
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Intro Gates
