@@ -480,7 +480,7 @@ namespace CodeSignalTest
         #region Rains of Reason
 
         [TestMethod]
-        [DataRow(new[] { 1, 2, 1 }, 1, 3, new[] { 3, 2, 3 } )]
+        [DataRow(new[] { 1, 2, 1 }, 1, 3, new[] { 3, 2, 3 })]
         [DataRow(new[] { 2, 1 }, 3, 9, new[] { 2, 1 })]
         [DataRow(new[] { 1, 2, 1, 2, 1 }, 2, 1, new[] { 1, 1, 1, 1, 1 })]
         public void ArrayReplace(int[] inputArray, int elemToReplace, int substitutionElem, int[] expected)
@@ -491,7 +491,7 @@ namespace CodeSignalTest
         }
 
         [TestMethod]
-        [DataRow( 248622, true)]
+        [DataRow(248622, true)]
         [DataRow(642386, false)]
         [DataRow(1, false)]
         [DataRow(8, true)]
@@ -540,6 +540,62 @@ namespace CodeSignalTest
         public void ChessBoardCellColor(string cell1, string cell2, bool expected)
         {
             var result = Solution.ChessBoardCellColor(cell1, cell2);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        #endregion
+
+        #region Through the Fog
+
+        [TestMethod]
+        [DataRow(10, 2, 7)]
+        [DataRow(10, 7, 2)]
+        [DataRow(4, 1, 3)]
+        [DataRow(6, 3, 0)]
+        [DataRow(18, 6, 15)]
+        [DataRow(12, 10, 4)]
+        [DataRow(18, 5, 14)]
+        public void CircleOFNumbers(int n, int firstNumber, int expected)
+        {
+            var result = Solution.CircleOfNumbers(n, firstNumber);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(100, 20, 170, 3)]
+        [DataRow(100, 1, 101, 1)]
+        [DataRow(1, 100, 64, 6)]
+        [DataRow(20, 20, 50, 6)]
+        [DataRow(50, 25, 100, 4)]
+        public void DepositProfit(int deposit, int rate, int threshold, int expected)
+        {
+            var result = Solution.DepositProfit(deposit, rate, threshold);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 2, 4, 7 }, 4)]
+        public void AbsoluteValuesSumMinimization(int[] a, int expected)
+        {
+            var result = Solution.AbsoluteValuesSumMinimization(a);
+
+            Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { "aba", "bbb", "bab" }, false)]
+        [DataRow(new[] { "ab", "bb", "aa" }, true)]
+        [DataRow(new[] { "q", "q" }, false)]
+        [DataRow(new[] { "zzzzab", "zzzzbb", "zzzzaa" }, true)]
+        [DataRow(new[] { "ab", "ad", "ef", "eg" }, false)]
+        [DataRow(new[] { "abc", "bef", "bcc", "bec", "bbc", "bdc" }, true)]
+        [DataRow(new[] { "abc", "abx", "axx", "abc" }, false)]
+        public void StringsRearrangement(string[] inputArray, bool expected)
+        {
+            var result = Solution.StringsRearrangement(inputArray);
 
             Assert.AreEqual(expected, result);
         }

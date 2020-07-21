@@ -537,6 +537,88 @@ namespace CodeSignalSolution
 
         #endregion
 
+        #region Through the fog
+
+        public static int CircleOfNumbers(int n, int firstNumber)
+        {
+
+            int half = n / 2;
+            return half > firstNumber ? half + firstNumber : firstNumber - half;
+        }
+
+        public static int DepositProfit(int deposit, int rate, int threshold)
+        {
+            var years = 0;
+            double dep = deposit;
+            while (dep < threshold)
+            {
+                dep += rate * dep / 100;
+                years++;
+            }
+            return years;
+        }
+
+        public static int AbsoluteValuesSumMinimization(int[] a)
+        {
+            var min = int.MaxValue;
+            var result = 0;
+
+            for (int i = 0; i < a.Length; i++)
+            {
+                var count = 0;
+                for (int j = 0; j < a.Length; j++)
+                {
+                    count += Math.Abs(a[i] - a[j]);
+                }
+                if (count < min)
+                {
+                    min = count;
+                    result = a[i];
+                }
+            }
+            return result;
+
+            // return a[(a.Length - 1) / 2];
+        }
+
+        public static bool StringsRearrangement(string[] inputArray)
+        {
+            var used = new bool[inputArray.Length];
+            for (var i = 0; i < inputArray.Length; ++i)
+            {
+                used[i] = true;
+                if (RecursiveSearch(inputArray, used, inputArray[i], inputArray.Length - 1))
+                    return true;
+                used[i] = false;
+            }
+            return false;
+        }
+
+        public static bool RecursiveSearch(string[] inputArray, bool[] used, string tail, int nbLeft)
+        {
+            for (var i = 0; i < inputArray.Length; ++i)
+            {
+                if (used[i])
+                    continue;
+                if (HasOnlyOneDiff(tail, inputArray[i]))
+                {
+                    if (nbLeft == 1)
+                        return true;
+                    used[i] = true;
+                    if (RecursiveSearch(inputArray, used, inputArray[i], nbLeft - 1))
+                        return true;
+                    used[i] = false;
+                }
+            }
+            return false;
+        }
+
+        public static bool HasOnlyOneDiff(string a, string b)
+        {
+            return a.Zip(b, (c1, c2) => c1 == c2).Where(bb => !bb).Take(2).Count() == 1;
+        }
+        #endregion
+
         /**************      The Core     **************/
 
         #region Intro Gates
@@ -564,12 +646,6 @@ namespace CodeSignalSolution
         public static int MaxMultiple(int divisor, int bound)
         {
             return (bound / divisor) * divisor;
-        }
-
-        public static int CircleOfNumbers(int n, int firstNumber)
-        {
-            int half = n / 2;
-            return half > firstNumber ? half + firstNumber : firstNumber - half;
         }
 
         public static int LateRide(int n)
