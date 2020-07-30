@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Labs
 {
@@ -149,6 +151,63 @@ namespace Labs
                 }
             }
             return coordinates; ;
+        }
+
+        #endregion
+
+        #region #4
+
+        public static bool AreAnagrams(string a, string b)
+        {
+            var aa = string.Concat(a.OrderBy(c => c));
+            var bb = string.Concat(b.OrderBy(c => c));
+
+            return aa == bb;
+        }
+
+        public static int LargestSubsetOfAnagrams(string[] words)
+        {
+            var max = int.MinValue;
+
+            for (int i = 0; i < words.Length - 1; i++)
+            {
+                var sum = 0;
+                for (int j = 0; j < words.Length; j++)
+                {
+                    if (AreAnagrams(words[i], words[j]))
+                    {
+                        sum++;
+                    }
+                }
+                max = Math.Max(max, sum);
+            }
+            return max;
+        }
+
+        public static IEnumerable<string> LargestGroupOfAnagrams(string[] words)
+        {
+            var max = int.MinValue;
+            var largetGroup = new List<string>();
+
+            for (int i = 0; i < words.Length - 1; i++)
+            {
+                var count = 0;
+                var group = new List<string>();
+                for (int j = 0; j < words.Length; j++)
+                {
+                    if (AreAnagrams(words[i], words[j]))
+                    {
+                        count++;
+                        group.Add(words[j]);
+                    }
+                }
+                if (count > max)
+                {
+                    max = count;
+                    largetGroup = group;
+                }
+            }
+            return largetGroup;
         }
 
         #endregion

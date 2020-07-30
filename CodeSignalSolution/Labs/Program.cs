@@ -30,8 +30,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Adjacent Element Product **********\n");
-            Console.WriteLine($"MyAdjacentElementsProduct is : {elapsedTime1}ms\nAdjacentElementsProduct is : {elapsedTime2}ms");
+            Console.WriteLine("\n - Adjacent Element Product\n");
+            Console.WriteLine($"\tMyAdjacentElementsProduct is : {elapsedTime1}ms\n\tAdjacentElementsProduct is : {elapsedTime2}ms");
 
             #endregion
 
@@ -49,8 +49,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Shape Area **********\n");
-            Console.WriteLine($"MyShapeArea is : {elapsedTime1}ms\nShapeArea is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Shape Area\n");
+            Console.WriteLine($"\tMyShapeArea is : {elapsedTime1}ms\n\tShapeArea is : {elapsedTime2}ms");
 
             #endregion
 
@@ -68,8 +68,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Make Array Consecutive 2 **********\n");
-            Console.WriteLine($"MyMakeArrayConsecutive2 is : {elapsedTime1}ms\nMakeArrayConsecutive2 is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Make Array Consecutive 2\n");
+            Console.WriteLine($"\tMyMakeArrayConsecutive2 is : {elapsedTime1}ms\n\tMakeArrayConsecutive2 is : {elapsedTime2}ms");
 
             #endregion
 
@@ -87,8 +87,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Almost Increasing Sequence **********\n");
-            Console.WriteLine($"MyAlmostIncreasingSequence is : {elapsedTime1}ms\nAlmostIncreasingSequence is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Almost Increasing Sequence\n");
+            Console.WriteLine($"\tMyAlmostIncreasingSequence is : {elapsedTime1}ms\n\tAlmostIncreasingSequence is : {elapsedTime2}ms");
 
             #endregion
 
@@ -112,8 +112,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Matrix Element Sum **********\n");
-            Console.WriteLine($"MyMatrixElementsSum is : {elapsedTime1}ms\nMatrixElementsSum is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Matrix Element Sum\n");
+            Console.WriteLine($"\tMyMatrixElementsSum is : {elapsedTime1}ms\n\tMatrixElementsSum is : {elapsedTime2}ms");
 
             #endregion
 
@@ -133,8 +133,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* All Longest Strings **********\n");
-            Console.WriteLine($"MyAllLongestStrings is : {elapsedTime1}ms\nAllLongestStrings is : {elapsedTime2}ms");
+            Console.WriteLine("\n- All Longest Strings\n");
+            Console.WriteLine($"\tMyAllLongestStrings is : {elapsedTime1}ms\n\tAllLongestStrings is : {elapsedTime2}ms");
 
             #endregion
 
@@ -155,29 +155,29 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Common Character Count **********\n");
-            Console.WriteLine($"MyCommonCharacterCount is : {elapsedTime1}ms\nCommonCharacterCount is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Common Character Count\n");
+            Console.WriteLine($"\tMyCommonCharacterCount is : {elapsedTime1}ms\n\tCommonCharacterCount is : {elapsedTime2}ms");
 
             #endregion
 
             #region My Sort By Height
 
-            var a = new[] { -1, 150, 190, 170, -1, -1, 160, 180 };
+            var heights = new[] { -1, 150, 190, 170, -1, -1, 160, 180 };
 
             sw.Start();
-            _ = MySortByHeight(a);
+            _ = MySortByHeight(heights);
             sw.Stop();
             elapsedTime1 = sw.ElapsedMilliseconds;
             sw.Reset();
 
             sw.Start();
-            _ = SortByHeight(a);
+            _ = SortByHeight(heights);
             sw.Stop();
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Common Character Count **********\n");
-            Console.WriteLine($"MySortByHeight is : {elapsedTime1}ms\nSortByHeight is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Common Character Count\n");
+            Console.WriteLine($"\tMySortByHeight is : {elapsedTime1}ms\n\tSortByHeight is : {elapsedTime2}ms");
 
             #endregion
 
@@ -197,8 +197,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Reverse In Parentheses **********\n");
-            Console.WriteLine($"MyReverseInParentheses is : {elapsedTime1}ms\nSortByHeight is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Reverse In Parentheses\n");
+            Console.WriteLine($"\tMyReverseInParentheses is : {elapsedTime1}ms\n\tSortByHeight is : {elapsedTime2}ms");
 
             #endregion
 
@@ -218,8 +218,8 @@ namespace Labs
             elapsedTime2 = sw.ElapsedMilliseconds;
             sw.Reset();
 
-            Console.WriteLine("\n********* Add Border **********\n");
-            Console.WriteLine($"MyAddBorder is : {elapsedTime1}ms\nAddBorder is : {elapsedTime2}ms");
+            Console.WriteLine("\n- Add Border\n");
+            Console.WriteLine($"\tMyAddBorder is : {elapsedTime1}ms\n\tAddBorder is : {elapsedTime2}ms");
 
             #endregion
 
@@ -227,7 +227,7 @@ namespace Labs
 
             Console.WriteLine("\n--------------------------------------------- Complements ---------------------------------------------");
 
-            Console.WriteLine("\n********* Rotar Matrices **********\n");
+            Console.WriteLine("\n- Rotar Matrices\n");
             int[,] matrix1 = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
             Complements.RotaMatriz(matrix1, 2);
             Print2DArray(matrix1);
@@ -238,19 +238,29 @@ namespace Labs
             Complements.RotaMatriz(matrix2, -3);
             Print2DArray(matrix2);
 
-            Console.WriteLine("\n********* Sistemas de Numeración **********\n");
-            Console.WriteLine($"ParseInt is : {Complements.ParseInt("baac", new[] { 'a', 'b', 'c' })}");
+            Console.WriteLine("\n- Sistemas de Numeración\n");
+            Console.WriteLine($"\tParseInt is : {Complements.ParseInt("baac", new[] { 'a', 'b', 'c' })}");
 
-            Console.WriteLine("\n********* Int To String **********\n");
-            Console.WriteLine($"IntToString is : {Complements.IntToString(29, new[] { 'a', 'b', 'c' })}");
+            Console.WriteLine("\n- Int To String\n");
+            Console.WriteLine($"\tIntToString is : {Complements.IntToString(29, new[] { 'a', 'b', 'c' })}");
 
-            Console.WriteLine("\n********* Construcción de Aeropuerto **********\n");
+            Console.WriteLine("\n- Construcción de Aeropuerto\n");
             int[,] terreno = new int[4, 6] { { 4, 3, 5, 1, 2, 1 }, { 2, 7, 6, 3, 2, 3 }, { 3, 8, 5, 2, 2, 3 }, { 5, 7, 6, 4, 2, 3 } };
             Print2DArray(terreno);
-            Console.WriteLine();
-            Console.WriteLine($"LocateAirport is : {Complements.LocateAirport(terreno, 3, 2)}");
-            Console.WriteLine();
+            Console.WriteLine($"\n\tLocateAirport is : {Complements.LocateAirport(terreno, 3, 2)}\n");
             PrintArray(Complements.GetDimensions(terreno, 3, 2));
+
+            Console.WriteLine("\n- Anagramas\n");
+            var a = "casa";
+            var b = "saca";
+            Console.WriteLine($"\tAre Anagrams \"{a}\" and \"{b}\": {Complements.AreAnagrams(a, b)}\n");
+            
+            var words = new string[] { "amor", "cometa", "roma", "mora", "moceta" };
+            Console.WriteLine($"\tThe largest subset of anagrams for...");
+            PrintArray(words);
+            Console.WriteLine($"\tis: {Complements.LargestSubsetOfAnagrams(words)}. This subset is...\n");
+            var largestSubset = Complements.LargestGroupOfAnagrams(words);
+            PrintArray(largestSubset.ToArray());
 
             #endregion
 
@@ -552,15 +562,18 @@ namespace Labs
 
         public static void PrintArray<T>(T[] array)
         {
+            Console.Write("\t");
             for (int i = 0; i < array.Length; i++)
             {
-                Console.Write(array[i] + "\t");
+                Console.Write(array[i] + "   ");
             }
+            Console.WriteLine("\n");
         }
         public static void Print2DArray<T>(T[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
+                Console.Write("\t");
                 for (int j = 0; j < matrix.GetLength(1); j++)
                 {
                     Console.Write(matrix[i, j] + "\t");
