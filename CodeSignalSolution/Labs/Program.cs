@@ -258,8 +258,9 @@ namespace Labs
             var words = new string[] { "amor", "cometa", "roma", "mora", "moceta" };
             Console.WriteLine($"\tThe largest subset of anagrams for...");
             PrintArray(words);
-            Console.WriteLine($"\tis: {Complements.LargestSubsetOfAnagrams(words)}. This subset is...\n");
-            var largestSubset = Complements.LargestGroupOfAnagrams(words);
+            Console.WriteLine($"\tis: {Complements.LargestAnagramsSet(words, words.Length)}. This subset is...\n");
+            var words1 = new string[] { "amor", "cometa", "roma", "mora", "moceta" };
+            var largestSubset = Complements.LargestAnagramsSet(words1);
             PrintArray(largestSubset.ToArray());
 
             #endregion

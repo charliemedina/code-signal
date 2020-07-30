@@ -165,49 +165,65 @@ namespace Labs
             return aa == bb;
         }
 
-        public static int LargestSubsetOfAnagrams(string[] words)
+        public static int LargestAnagramsSet(string[] words, int n)
         {
-            var max = int.MinValue;
+            var maxSize = 0;
 
-            for (int i = 0; i < words.Length - 1; i++)
+            Dictionary<string, int> count = new Dictionary<string, int>();
+
+            for (int i = 0; i < n ; i++)
             {
-                var sum = 0;
-                for (int j = 0; j < words.Length; j++)
+                char[] temp = words[i].ToCharArray();
+                Array.Sort(temp);
+
+                words[i] = new string(temp);
+
+                if (count.ContainsKey(words[i]))
                 {
-                    if (AreAnagrams(words[i], words[j]))
-                    {
-                        sum++;
-                    }
+                    count[words[i]]++;
                 }
-                max = Math.Max(max, sum);
+                else 
+                {
+                    count.Add(words[i], 1);
+                }
+                maxSize = Math.Max(maxSize, count[words[i]]);
             }
-            return max;
+            return maxSize;
         }
 
-        public static IEnumerable<string> LargestGroupOfAnagrams(string[] words)
+        public static string[] LargestAnagramsSet(string[] words)
         {
-            var max = int.MinValue;
-            var largetGroup = new List<string>();
+            var maxSize = 0;
+            var maxKey = string.Empty;
 
-            for (int i = 0; i < words.Length - 1; i++)
+            Dictionary<string, List<string>> set = new Dictionary<string, List<string>>();
+
+            for (int i = 0; i < words.Length; i++)
             {
-                var count = 0;
-                var group = new List<string>();
-                for (int j = 0; j < words.Length; j++)
+                char[] temp = words[i].ToCharArray();
+                Array.Sort(temp);
+
+                var key = new string(temp);
+
+                if (set.ContainsKey(key))
                 {
-                    if (AreAnagrams(words[i], words[j]))
-                    {
-                        count++;
-                        group.Add(words[j]);
-                    }
+                    set[key].Add(words[i]);
                 }
-                if (count > max)
+                else
                 {
-                    max = count;
-                    largetGroup = group;
+                    var anagrams = new List<string>
+                    {
+                        words[i]
+                    };
+                    set.Add(key, anagrams);
+                }
+                if (maxSize < set[key].Count())
+                {
+                    maxSize = set[key].Count();
+                    maxKey = key;
                 }
             }
-            return largetGroup;
+            return string.IsNullOrEmpty(maxKey) ? words : set[maxKey].ToArray();
         }
 
         #endregion
