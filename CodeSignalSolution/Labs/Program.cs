@@ -229,13 +229,13 @@ namespace Labs
 
             Console.WriteLine("\n- Rotar Matrices\n");
             int[,] matrix1 = new int[4, 4] { { 1, 2, 3, 4 }, { 5, 6, 7, 8 }, { 9, 10, 11, 12 }, { 13, 14, 15, 16 } };
-            Complements.RotaMatriz(matrix1, 2);
+            Complements.RotateMatrix(matrix1, 2);
             Print2DArray(matrix1);
 
             Console.WriteLine();
 
             int[,] matrix2 = new int[3, 3] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
-            Complements.RotaMatriz(matrix2, -3);
+            Complements.RotateMatrix(matrix2, -3);
             Print2DArray(matrix2);
 
             Console.WriteLine("\n- Sistemas de Numeración\n");
@@ -262,6 +262,78 @@ namespace Labs
             var words1 = new string[] { "amor", "cometa", "roma", "mora", "moceta" };
             var largestSubset = Complements.LargestAnagramsSet(words1);
             PrintArray(largestSubset.ToArray());
+
+            Console.WriteLine("\n- Max SubArray Sum\n");
+            var array = new[] { -2, -3, 4, -1, -2, 1, 5, -3 };
+            PrintArray(array);
+            Console.WriteLine($"\tThe consecutive maximum sum is: {Complements.MaxSubArraySum(array)}\n");
+
+            Console.WriteLine("\n- Multiply Polynomials\n");
+            var p1 = new[] { -3, 2, 5 };
+            var p2 = new[] { 4, 2 };
+
+            PrintPolynomios(p1);
+            PrintPolynomios(p2);
+            Console.WriteLine($"\tResult is:\n");
+            PrintPolynomios(Complements.MultiplyPolynomials(p1, p2));
+
+            Console.WriteLine("\n- Closet Sort\n");
+            var arr = new[] { 5, 3 , 7, 10 };
+            var pivot = 7;
+            PrintArray(arr);
+            Console.WriteLine($"\tSort by closet with pivot equal {pivot} is:\n");
+            Complements.ClosetSort(arr, pivot);
+            PrintArray(arr);
+
+            Console.WriteLine("\n- 4 in Line\n");
+            var board = new bool[,] {
+                { true, true, false, true},
+                { true, true, false, true},
+                { false, true, true, false},
+                { true, false, true, true}
+            };
+
+            Print2DArray(board);
+            Console.WriteLine($"\tThere are 4 in line is: {Complements.FourInLine(board)}\n");
+
+            Console.WriteLine("\n- IsInTheSoup\n");
+
+            var soup = new char[,] {
+                { '*', 'I', 't', 'C', '*'},
+                { '*', 't', 'a', 'a', '*'},
+                { '*', 'a', 'a', 'm', '*'},
+                { '*', 'l', 'z', '*', '*'}
+            };
+            var word = "Iam";
+
+            Print2DArray(soup);
+            Console.WriteLine($"\tIs \"{word}\" in the soup: {Complements.ItIsInTheSoup(soup, word)}\n");
+
+            Console.WriteLine("\n- Is Magic Square\n");
+
+            var magic = new int[,] {
+                { 2, 7, 6 },
+                { 9, 5, 1 },
+                { 4, 3, 8 }
+            };
+
+            Print2DArray(magic);
+            Console.WriteLine($"\tIs magic square : {Complements.IsMagicSquare(magic)}\n");
+
+            Console.WriteLine("\n- Sub Matrix\n");
+
+            var original = new int[,] {
+                { 1, 2, 2, 4, 5 },
+                { 0, 2, 1, 1, 1 },
+                { 3, 0, 1, 3, 2 },
+                { 7, 7, 0, 5, 2 }
+            };
+
+            Print2DArray(original);
+            var row = 2; var column = 3;
+            Console.WriteLine($"\tthe result of removing row {row} and column {column} is is the submatrix: \n");
+
+            Print2DArray(Complements.SubMatrix(original, row, column));
 
             #endregion
 
@@ -561,7 +633,7 @@ namespace Labs
                 .ToArray();
         }
 
-        public static void PrintArray<T>(T[] array)
+        static void PrintArray<T>(T[] array)
         {
             Console.Write("\t");
             for (int i = 0; i < array.Length; i++)
@@ -570,7 +642,7 @@ namespace Labs
             }
             Console.WriteLine("\n");
         }
-        public static void Print2DArray<T>(T[,] matrix)
+        static void Print2DArray<T>(T[,] matrix)
         {
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
@@ -581,6 +653,26 @@ namespace Labs
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("\n");
+        }
+        static void PrintPolynomios(int[] p)
+        {
+            var n = p.Length;
+
+            Console.Write("\t");
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write(p[i]);
+                if (i != 0)
+                {
+                    Console.Write("x^" + i);
+                }
+                if (i != n - 1)
+                {
+                    Console.Write(" + ");
+                }
+            }
+            Console.WriteLine("\n");
         }
     }
 }
