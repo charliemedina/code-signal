@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
@@ -232,29 +233,27 @@ namespace Labs
             Complements.RotateMatrix(matrix1, 2);
             Print2DArray(matrix1);
 
-            Console.WriteLine();
-
             int[,] matrix2 = new int[3, 3] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
             Complements.RotateMatrix(matrix2, -3);
             Print2DArray(matrix2);
 
-            Console.WriteLine("\n- Sistemas de Numeración\n");
-            Console.WriteLine($"\tParseInt is : {Complements.ParseInt("baac", new[] { 'a', 'b', 'c' })}");
+            Console.WriteLine("- Sistemas de Numeración\n");
+            Console.WriteLine($"\tParseInt is : {Complements.ParseInt("baac", new[] { 'a', 'b', 'c' })}\n");
 
-            Console.WriteLine("\n- Int To String\n");
-            Console.WriteLine($"\tIntToString is : {Complements.IntToString(29, new[] { 'a', 'b', 'c' })}");
+            Console.WriteLine("- Int To String\n");
+            Console.WriteLine($"\tIntToString is : {Complements.IntToString(29, new[] { 'a', 'b', 'c' })}\n");
 
-            Console.WriteLine("\n- Construcción de Aeropuerto\n");
+            Console.WriteLine("- Construcción de Aeropuerto\n");
             int[,] terreno = new int[4, 6] { { 4, 3, 5, 1, 2, 1 }, { 2, 7, 6, 3, 2, 3 }, { 3, 8, 5, 2, 2, 3 }, { 5, 7, 6, 4, 2, 3 } };
             Print2DArray(terreno);
-            Console.WriteLine($"\n\tLocateAirport is : {Complements.LocateAirport(terreno, 3, 2)}\n");
+            Console.WriteLine($"\tLocateAirport is : {Complements.LocateAirport(terreno, 3, 2)}\n");
             PrintArray(Complements.GetDimensions(terreno, 3, 2));
 
-            Console.WriteLine("\n- Anagramas\n");
+            Console.WriteLine("- Anagramas\n");
             var a = "casa";
             var b = "saca";
             Console.WriteLine($"\tAre Anagrams \"{a}\" and \"{b}\": {Complements.AreAnagrams(a, b)}\n");
-            
+
             var words = new string[] { "amor", "cometa", "roma", "mora", "moceta" };
             Console.WriteLine($"\tThe largest subset of anagrams for...");
             PrintArray(words);
@@ -263,12 +262,12 @@ namespace Labs
             var largestSubset = Complements.LargestAnagramsSet(words1);
             PrintArray(largestSubset.ToArray());
 
-            Console.WriteLine("\n- Max SubArray Sum\n");
+            Console.WriteLine("- Max SubArray Sum\n");
             var array = new[] { -2, -3, 4, -1, -2, 1, 5, -3 };
             PrintArray(array);
             Console.WriteLine($"\tThe consecutive maximum sum is: {Complements.MaxSubArraySum(array)}\n");
 
-            Console.WriteLine("\n- Multiply Polynomials\n");
+            Console.WriteLine("- Multiply Polynomials\n");
             var p1 = new[] { -3, 2, 5 };
             var p2 = new[] { 4, 2 };
 
@@ -277,15 +276,15 @@ namespace Labs
             Console.WriteLine($"\tResult is:\n");
             PrintPolynomios(Complements.MultiplyPolynomials(p1, p2));
 
-            Console.WriteLine("\n- Closet Sort\n");
-            var arr = new[] { 5, 3 , 7, 10 };
+            Console.WriteLine("- Closet Sort\n");
+            var arr = new[] { 5, 3, 7, 10 };
             var pivot = 7;
             PrintArray(arr);
             Console.WriteLine($"\tSort by closet with pivot equal {pivot} is:\n");
             Complements.ClosetSort(arr, pivot);
             PrintArray(arr);
 
-            Console.WriteLine("\n- 4 in Line\n");
+            Console.WriteLine("- 4 in Line\n");
             var board = new bool[,] {
                 { true, true, false, true},
                 { true, true, false, true},
@@ -296,7 +295,7 @@ namespace Labs
             Print2DArray(board);
             Console.WriteLine($"\tThere are 4 in line is: {Complements.FourInLine(board)}\n");
 
-            Console.WriteLine("\n- IsInTheSoup\n");
+            Console.WriteLine("- IsInTheSoup\n");
 
             var soup = new char[,] {
                 { '*', 'I', 't', 'C', '*'},
@@ -309,7 +308,7 @@ namespace Labs
             Print2DArray(soup);
             Console.WriteLine($"\tIs \"{word}\" in the soup: {Complements.ItIsInTheSoup(soup, word)}\n");
 
-            Console.WriteLine("\n- Is Magic Square\n");
+            Console.WriteLine("- Is Magic Square\n");
 
             var magic = new int[,] {
                 { 2, 7, 6 },
@@ -320,7 +319,7 @@ namespace Labs
             Print2DArray(magic);
             Console.WriteLine($"\tIs magic square : {Complements.IsMagicSquare(magic)}\n");
 
-            Console.WriteLine("\n- Sub Matrix\n");
+            Console.WriteLine("- Sub Matrix\n");
 
             var original = new int[,] {
                 { 1, 2, 2, 4, 5 },
@@ -331,9 +330,71 @@ namespace Labs
 
             Print2DArray(original);
             var row = 2; var column = 3;
-            Console.WriteLine($"\tthe result of removing row {row} and column {column} is is the submatrix: \n");
+            Console.WriteLine($"\tThe result of removing row {row} and column {column} is is the submatrix: \n");
 
             Print2DArray(Complements.SubMatrix(original, row, column));
+
+            Console.WriteLine("- Sort Matrix\n");
+
+            var m = new int[,] {
+                { 7, 2, 9 },
+                {1, 5, 4 },
+                { 3, 8, 6 }
+            };
+            Print2DArray(m);
+            Complements.Sort(m);
+            Console.WriteLine($"\tIs Symmetric...\n");
+            Print2DArray(m);
+            Console.WriteLine($"\tThe answer is {Complements.IsSymmetric(m)} \n");
+
+            var symmetric = new int[,] {
+                { 1, 7, 3 },
+                { 7, 4, -5 },
+                { 3, -5, 6 }
+            };
+            Console.WriteLine($"\tIs Symmetric...\n");
+            Print2DArray(symmetric);
+            Console.WriteLine($"\tThe answer is {Complements.IsSymmetric(symmetric)} \n");
+
+            Console.WriteLine("- Average Distance\n");
+
+            var points = new Point[] { new Point(0, 0), new Point(1, 2), new Point(4, 5), new Point(8, 6), new Point(1, 0) };
+            var p = new Point(3, 1);
+
+            Console.WriteLine($"\tPoints: \n");
+            PrintArray(points);
+
+            Console.WriteLine($"\tThe average distance with {p} is: {Complements.AverageDistance(points, p)}\n");
+
+            Console.WriteLine("- Sort By Closet\n");
+
+            var points1 = new Point[] { new Point(0, 0), new Point(1, 2), new Point(4, 5), new Point(8, 6), new Point(1, 0) };
+
+            Console.WriteLine($"\tPoints: \n");
+            PrintArray(points1);
+            Console.WriteLine($"\tSort by closet with {p}:\n");
+            Complements.SortByCloset(points1, p);
+            PrintArray(points1);
+
+            Console.WriteLine("- Closet Pairs\n");
+
+            Console.WriteLine($"\tPoints: \n");
+            PrintArray(points1);
+            Console.WriteLine($"\tThe closet pair is: \n");
+            PrintArray(Complements.ClosetPair(points1));
+
+            Console.WriteLine("- Are Collinear\n");
+
+            Console.WriteLine($"\tPoints: \n");
+            var ps = new Point[] { new Point(-4, -7), new Point(0, -1), new Point(2, 2), new Point(6, 10) };
+            PrintArray(ps);
+            Console.WriteLine($"\tAre collinear: {Complements.AreCollinear(ps)}\n");
+
+            Console.WriteLine("- Knight Movements\n");
+            var position = new Point(2, 2);
+            Console.WriteLine($"\tThe posibles movements to the Knight from {position} position are: \n");
+            var movements = Complements.KnightMovements(position);
+            PrintArray(movements);
 
             #endregion
 

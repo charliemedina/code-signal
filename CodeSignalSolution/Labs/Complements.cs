@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Numerics;
 
 namespace Labs
 {
@@ -172,7 +174,7 @@ namespace Labs
 
             Dictionary<string, int> count = new Dictionary<string, int>();
 
-            for (int i = 0; i < n ; i++)
+            for (int i = 0; i < n; i++)
             {
                 char[] temp = words[i].ToCharArray();
                 Array.Sort(temp);
@@ -183,7 +185,7 @@ namespace Labs
                 {
                     count[words[i]]++;
                 }
-                else 
+                else
                 {
                     count.Add(words[i], 1);
                 }
@@ -248,7 +250,6 @@ namespace Labs
                 {
                     currentSum = 0;
                 }
-
             }
             return maxSum;
         }
@@ -293,23 +294,16 @@ namespace Labs
             }
         }
 
-        private static void Swap(int[] array, int i, int j)
-        {
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-
         #endregion
 
-        #region #8 FourInLine
+        #region #8 Four In Line
 
         public static bool FourInLine(bool[,] board)
         {
             var coord = new Point[] {
-                new Point { X = 1, Y = 0 }, 
-                new Point { X = 0, Y = 1 }, 
-                new Point { X = 1, Y = 1 } 
+                new Point { X = 1, Y = 0 },
+                new Point { X = 0, Y = 1 },
+                new Point { X = 1, Y = 1 }
             };
 
             var rows = board.GetLength(0);
@@ -382,7 +376,7 @@ namespace Labs
                                 {
                                     count++;
                                 }
-                                else 
+                                else
                                 {
                                     break;
                                 }
@@ -447,8 +441,8 @@ namespace Labs
                     colSum += matrix[j, i];
                 }
 
-                if (d1 != colSum) { return false; } 
-                    
+                if (d1 != colSum) { return false; }
+
             }
             return true;
         }
@@ -499,6 +493,171 @@ namespace Labs
             }
             return result;
         }
+
+        #endregion
+
+        #region #11 Sort Matrix
+
+        public static void Sort(int[,] matrix)
+        {
+            var rows = matrix.GetLength(0);
+            var columns = matrix.GetLength(1);
+
+            var list = new List<int>();
+
+            for (int x = 0; x < rows; x++)
+            {
+                for (int y = 0; y < columns; y++)
+                {
+                    list.Add(matrix[x, y]);
+                }
+            }
+
+            list.Sort();
+
+            for (int k = 0; k < list.Count; k++)
+            {
+                var i = k / columns;
+                var j = k % columns;
+
+                matrix[i, j] = list[k];
+            }
+        }
+
+        public static bool IsSymmetric(int[,] matrix)
+        {
+            var n = matrix.GetLength(0);
+
+            for (int x = 0; x < n; x++)
+            {
+                for (int y = 0; y < n; y++)
+                {
+                    if (matrix[x, y] != matrix[y, x]) { return false;  }
+                }
+            }
+            return true;
+        }
+
+        #endregion
+
+        #region #12 Average Distance
+
+        public static int AverageDistance(Point[] points, Point p)
+        {
+            return points.Sum(_ => (int)EuclideanDistance(_, p)) / points.Length;
+        }
+
+        public static Point[] SortByCloset(Point[] points, Point p)
+        {
+            for (int i = 0; i < points.Length - 1; i++)
+            {
+                for (int j =  i + 1; j < points.Length; j++)
+                {
+                    if (EuclideanDistance(points[j], p) < EuclideanDistance(points[i], p))
+                    {
+                        Swap(points, i, j);
+                    }
+                }
+            }
+            return points;
+        }
+
+        #endregion
+
+        #region #13 Closet Pair
+
+        public static Point[] ClosetPair(Point[] points)
+        {
+            var p1 = 0;
+            var p2 = 0;
+
+            var min = double.MaxValue;
+
+            for (int x = 0; x < points.Length - 1; x++)
+            {
+                for (int y = x + 1; y < points.Length; y++)
+                {
+                    double dist = EuclideanDistance(points[x], points[y]);
+                    if (dist < min)
+                    {
+                        min = dist;
+                        p1 = x;
+                        p2 = y;
+                    }
+                }
+            }
+            return new Point[] { points[p1], points[p2] };
+        }
+
+        #endregion
+
+        #region It's a straight 
+
+        public static bool AreCollinear(Point[] points)  // The vectors method
+        {
+            var vectors = new List<Point>();
+
+            var origin = points[0];
+            for (int i = 1; i < points.Length; i++)
+            {
+                var vector = new Point(Math.Abs(origin.X - points[i].X), Math.Abs(origin.Y - points[i].Y));
+                vectors.Add(vector);
+            }
+
+            var referencePoint = vectors.First();
+            for (int i = 1; i < vectors.Count; i++)
+            {
+                if ((double)vectors[i].X / vectors[i].Y != (double)referencePoint.X / referencePoint.Y) 
+                {
+                    return false;  
+                }
+            }
+            return true;
+        }
+
+        #endregion
+
+        #region Knights movements
+
+        public static Point[] KnightMovements(Point position)
+        {
+            var result = new List<Point>();
+
+            var movements = new Point[] { 
+                new Point { X = -1, Y = -2 },
+                new Point { X = -2, Y = -1 },
+                new Point { X = -2, Y = 1 },
+                new Point { X = -1, Y = 2 },
+                new Point { X = 1, Y = -2 },
+                new Point { X = 2, Y = -1 },
+                new Point { X = 1, Y = 2 },
+                new Point { X = 2, Y = 1 }
+            };
+
+            for (int i = 0; i < movements.Length; i++)
+            {
+                var posibleMove = new Point(position.X + movements[i].X, position.Y + movements[i].Y);
+                if (0 <= posibleMove.X && posibleMove.X <= 7 && 0 <= posibleMove.Y && posibleMove.Y <= 7)
+                {
+                    result.Add(posibleMove);
+                }
+            }
+            return result.ToArray();
+        }
+
+        #endregion
+
+        #region Helpers
+
+        private static void Swap<T>(T[] array, int i, int j)
+        {
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+
+        private static double EuclideanDistance(Point p1, Point p2) =>
+           Math.Sqrt((p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y));
 
         #endregion
     }
