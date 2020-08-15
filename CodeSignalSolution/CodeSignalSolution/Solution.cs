@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text.RegularExpressions;
@@ -667,6 +668,40 @@ namespace CodeSignalSolution
                 return 1 + (s - min1) / min2_10;
             }
             return 10 + (s - min1 - min2_10 * 9) / min11;
+        }
+
+        #endregion
+
+        #region Diving Deeper
+
+        public static int[] ExtractEachKth(int[] inputArray, int k)
+        {
+            return inputArray.Where((it, index) => (index + 1) % k != 0).ToArray();
+        }
+
+        public static char FirstDigit(string inputString)
+        {
+            return inputString.First(c => c >= '0' && c <= '9');
+        }
+
+        public static int DifferentSymbolsNaive(string s)
+        {
+            return s.GroupBy(c => c).Count();
+        }
+
+        public static int ArrayMaxConsecutiveSum(int[] inputArray, int k)
+        {
+            int max = inputArray.Take(k).Sum();
+            int sum = max;
+
+            for (int i = 1; i <= inputArray.Length - k; i++)
+            {
+                sum = sum - inputArray[i - 1] + inputArray[i + k - 1];
+
+                if (sum > max)
+                    max = sum;
+            }
+            return max;
         }
 
         #endregion

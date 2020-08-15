@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 
 namespace CodeSignalTest
 {
@@ -22,9 +23,9 @@ namespace CodeSignalTest
         [DataRow(-1000, 1000, 0)]
         public void AddTest(int param1, int param2, int expected)
         {
-            var result = Solution.Add(param1, param2);
+            var actual = Solution.Add(param1, param2);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -36,9 +37,9 @@ namespace CodeSignalTest
         [DataRow(8, 1)]
         public void CenturyFromYearTest(int year, int expected)
         {
-            var result = Solution.CenturyFromYear(year);
+            var actual = Solution.CenturyFromYear(year);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -55,9 +56,9 @@ namespace CodeSignalTest
 
         public void CheckPalindromeTest(string input, bool expected)
         {
-            var result = Solution.CheckPalindrome(input);
+            var actual = Solution.CheckPalindrome(input);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion
@@ -76,9 +77,9 @@ namespace CodeSignalTest
         [DataRow(new[] { 1, 0, 1, 0, 1000 }, 0)]
         public void AdjacentElementsProductTest(int[] inputArray, int expected)
         {
-            var result = Solution.AdjacentElementsProduct(inputArray);
+            var actual = Solution.AdjacentElementsProduct(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -93,9 +94,9 @@ namespace CodeSignalTest
         [DataRow(100, 19801)]
         public void ShapeArea(int n, int expected)
         {
-            var result = Solution.ShapeArea(n);
+            var actual = Solution.ShapeArea(n);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -106,9 +107,9 @@ namespace CodeSignalTest
         [DataRow(new[] { 1 }, 0)]
         public void MakeArrayConsecutive2(int[] inputArray, int expected)
         {
-            var result = Solution.MakeArrayConsecutive2(inputArray);
+            var actual = Solution.MakeArrayConsecutive2(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -133,9 +134,9 @@ namespace CodeSignalTest
         [DataRow(new[] { 3, 5, 67, 98, 3 }, true)]
         public void AlmostIncreasingSequence(int[] sequence, bool expected)
         {
-            var result = Solution.AlmostIncreasingSequence(sequence);
+            var actual = Solution.AlmostIncreasingSequence(sequence);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -148,9 +149,9 @@ namespace CodeSignalTest
         {
             int[][] matrix = new int[][] { a, b, c };
 
-            var result = Solution.MatrixElementsSum(matrix);
+            var actual = Solution.MatrixElementsSum(matrix);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion
@@ -161,9 +162,9 @@ namespace CodeSignalTest
         [DynamicData(nameof(AllLongestStringsDynamic), DynamicDataSourceType.Method)]
         public void AllLongestStrings(string[] inputArray, string[] expected)
         {
-            var result = Solution.AllLongestStrings(inputArray);
+            var actual = Solution.AllLongestStrings(inputArray);
 
-            CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         static IEnumerable<object[]> AllLongestStringsDynamic()
@@ -189,9 +190,9 @@ namespace CodeSignalTest
         [DataRow("a", "aaa", 1)]
         public void CommonCharacterCount(string s1, string s2, int expected)
         {
-            var result = Solution.CommonCharacterCount(s1, s2);
+            var actual = Solution.CommonCharacterCount(s1, s2);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -208,9 +209,9 @@ namespace CodeSignalTest
         [DataRow(123321, true)]
         public void IsLucky(int n, bool expected)
         {
-            var result = Solution.IsLucky(n);
+            var actual = Solution.IsLucky(n);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -222,9 +223,9 @@ namespace CodeSignalTest
         [DataRow(new[] { 23, 54, -1, 43, 1, -1, -1, 77, -1, -1, -1, 3 }, new[] { 1, 3, -1, 23, 43, -1, -1, 54, -1, -1, -1, 77 })]
         public void SortByHeight(int[] a, int[] expected)
         {
-            var result = Solution.SortByHeight(a);
+            var actual = Solution.SortByHeight(a);
 
-            CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -235,9 +236,9 @@ namespace CodeSignalTest
         [DataRow("(abc)d(efg)", "cbadgfe")]
         public void ReverseInParentheses(string inputString, string expected)
         {
-            var result = Solution.ReverseInParentheses(inputString);
+            var actual = Solution.ReverseInParentheses(inputString);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion
@@ -252,27 +253,27 @@ namespace CodeSignalTest
         [DataRow(new[] { 100, 51, 50, 100 }, new[] { 150, 151 })]
         public void AlternatingSums(int[] a, int[] expected)
         {
-            var result = Solution.AlternatingSums(a);
+            var actual = Solution.AlternatingSums(a);
 
-            CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [DataRow(new string[] { "aa", "**", "zz" })]
         public void AddBorder(string[] picture)
         {
-            var result = Solution.AddBorder(picture);
+            var actual = Solution.AddBorder(picture);
 
-            CollectionAssert.AreEqual(new string[] { "****", "*aa*", "****", "*zz*", "****" }, result);
+            CollectionAssert.AreEqual(new string[] { "****", "*aa*", "****", "*zz*", "****" }, actual);
         }
 
         [TestMethod]
         [DynamicData(nameof(AllLongestStringsDynamic), DynamicDataSourceType.Method)]
         public void AddBorder(string[] inputArray, string[] expected)
         {
-            var result = Solution.AllLongestStrings(inputArray);
+            var actual = Solution.AllLongestStrings(inputArray);
 
-            CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         static IEnumerable<object[]> AddBorderDynamic()
@@ -299,9 +300,9 @@ namespace CodeSignalTest
         [DataRow(new[] { 832, 998, 148, 570, 533, 561, 894, 147, 455, 279 }, new[] { 832, 570, 148, 998, 533, 561, 455, 147, 894, 279 }, false)]
         public void AreSimilar(int[] a, int[] b, bool expected)
         {
-            var result = Solution.AreSimilar(a, b);
+            var actual = Solution.AreSimilar(a, b);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -326,9 +327,9 @@ namespace CodeSignalTest
             54557, 56324, -34397, -33024, -21934, -18861, -23196, 56542, -63986, 59833, -45610, -16948, 399, -7405, 54701, -57348, -32627, 65534, 615 }, 2199614)]
         public void ArrayChange(int[] inputArray, int expected)
         {
-            var result = Solution.ArrayChange(inputArray);
+            var actual = Solution.ArrayChange(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -344,9 +345,9 @@ namespace CodeSignalTest
         [DataRow("abdhuierf", false)]
         public void PalindromeRearranging(string inputString, bool expected)
         {
-            var result = Solution.PalindromeRearranging(inputString);
+            var actual = Solution.PalindromeRearranging(inputString);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion
@@ -360,9 +361,9 @@ namespace CodeSignalTest
         [DataRow(5, 5, 10, 10, false)]
         public void AreEquallyStrong(int yourLeft, int yourRight, int friendsLeft, int friendsRight, bool expected)
         {
-            var result = Solution.AreEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight);
+            var actual = Solution.AreEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -375,9 +376,9 @@ namespace CodeSignalTest
         [DataRow(new[] { -14, 15, -15 }, 30)]
         public void ArrayMaximalAdjacentDifference(int[] inputArray, int expected)
         {
-            var result = Solution.ArrayMaximalAdjacentDifference(inputArray);
+            var actual = Solution.ArrayMaximalAdjacentDifference(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -403,9 +404,9 @@ namespace CodeSignalTest
         [DataRow("0..1.0.0", false)]
         public void IsIPv4Address(string inputArray, bool expected)
         {
-            var result = Solution.IsIPv4Address(inputArray);
+            var actual = Solution.IsIPv4Address(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -417,20 +418,20 @@ namespace CodeSignalTest
         [DataRow(new[] { 5, 8, 9, 13, 14 }, 6)]
         public void AvoidObstacles(int[] inputArray, int expected)
         {
-            var result = Solution.AvoidObstacles(inputArray);
+            var actual = Solution.AvoidObstacles(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [DynamicData(nameof(BoxBlurJaggedArraysDynamic), DynamicDataSourceType.Method)]
         public void BoxBlur(int[][] inputArray, int[][] expected)
         {
-            var result = Solution.BoxBlur(inputArray);
+            var actual = Solution.BoxBlur(inputArray);
 
-            for (int i = 0; i < result.Length; i++)
+            for (int i = 0; i < actual.Length; i++)
             {
-                CollectionAssert.AreEqual(expected[i], result[i]);
+                CollectionAssert.AreEqual(expected[i], actual[i]);
             }
         }
         static IEnumerable<object[]> BoxBlurJaggedArraysDynamic()
@@ -450,11 +451,11 @@ namespace CodeSignalTest
         [DynamicData(nameof(MinesweeperJaggedArraysDynamic), DynamicDataSourceType.Method)]
         public void Minesweeper(bool[][] matrix, int[][] expected)
         {
-            var result = Solution.Minesweeper(matrix);
+            var actual = Solution.Minesweeper(matrix);
 
-            for (int i = 0; i < result.Length; i++)
+            for (int i = 0; i < actual.Length; i++)
             {
-                CollectionAssert.AreEqual(expected[i], result[i]);
+                CollectionAssert.AreEqual(expected[i], actual[i]);
             }
         }
         static IEnumerable<object[]> MinesweeperJaggedArraysDynamic()
@@ -485,9 +486,9 @@ namespace CodeSignalTest
         [DataRow(new[] { 1, 2, 1, 2, 1 }, 2, 1, new[] { 1, 1, 1, 1, 1 })]
         public void ArrayReplace(int[] inputArray, int elemToReplace, int substitutionElem, int[] expected)
         {
-            var result = Solution.ArrayReplace(inputArray, elemToReplace, substitutionElem);
+            var actual = Solution.ArrayReplace(inputArray, elemToReplace, substitutionElem);
 
-            CollectionAssert.AreEqual(expected, result);
+            CollectionAssert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -499,9 +500,9 @@ namespace CodeSignalTest
         [DataRow(5468428, false)]
         public void EvenDigitsOnly(int n, bool expected)
         {
-            var result = Solution.EvenDigitsOnly(n);
+            var actual = Solution.EvenDigitsOnly(n);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -512,9 +513,9 @@ namespace CodeSignalTest
         [DataRow("va[riable0", false)]
         public void VariableName(string name, bool expected)
         {
-            var result = Solution.VariableName(name);
+            var actual = Solution.VariableName(name);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -525,9 +526,9 @@ namespace CodeSignalTest
         [DataRow("codesignal", "dpeftjhobm")]
         public void AlphabeticShift(string inputString, string expected)
         {
-            var result = Solution.AlphabeticShift(inputString);
+            var actual = Solution.AlphabeticShift(inputString);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -539,9 +540,9 @@ namespace CodeSignalTest
         [DataRow("C3", "B5", false)]
         public void ChessBoardCellColor(string cell1, string cell2, bool expected)
         {
-            var result = Solution.ChessBoardCellColor(cell1, cell2);
+            var actual = Solution.ChessBoardCellColor(cell1, cell2);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion
@@ -558,9 +559,9 @@ namespace CodeSignalTest
         [DataRow(18, 5, 14)]
         public void CircleOFNumbers(int n, int firstNumber, int expected)
         {
-            var result = Solution.CircleOfNumbers(n, firstNumber);
+            var actual = Solution.CircleOfNumbers(n, firstNumber);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -571,18 +572,18 @@ namespace CodeSignalTest
         [DataRow(50, 25, 100, 4)]
         public void DepositProfit(int deposit, int rate, int threshold, int expected)
         {
-            var result = Solution.DepositProfit(deposit, rate, threshold);
+            var actual = Solution.DepositProfit(deposit, rate, threshold);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
         [DataRow(new[] { 2, 4, 7 }, 4)]
         public void AbsoluteValuesSumMinimization(int[] a, int expected)
         {
-            var result = Solution.AbsoluteValuesSumMinimization(a);
+            var actual = Solution.AbsoluteValuesSumMinimization(a);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -595,13 +596,68 @@ namespace CodeSignalTest
         [DataRow(new[] { "abc", "abx", "axx", "abc" }, false)]
         public void StringsRearrangement(string[] inputArray, bool expected)
         {
-            var result = Solution.StringsRearrangement(inputArray);
+            var actual = Solution.StringsRearrangement(inputArray);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         #endregion
 
+        #region Diving Deeper
+
+        [TestMethod]
+        [DataRow(new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }, 3, new[] { 1, 2, 4, 5, 7, 8, 10 })]
+        [DataRow(new[] { 1, 2, 1, 2, 1, 2, 1, 2 }, 2, new[] { 1, 1, 1, 1 })]
+        [DataRow(new[] { 1, 2, 1, 2, 1, 2, 1, 2 }, 10, new[] { 1, 2, 1, 2, 1, 2, 1, 2 })]
+        [DataRow(new[] { 2, 4, 6, 8, 10 }, 2, new[] { 2, 6, 10 })]
+        public void ExtractEachKth(int[] inputArray, int k, int[] expected)
+        {
+            var actual = Solution.ExtractEachKth(inputArray, k);
+
+            CollectionAssert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("var_1__Int", '1')]
+        [DataRow("q2q-q", '2')]
+        [DataRow("0ss", '0')]
+        [DataRow("_Aas_23", '2')]
+        [DataRow("a a_933", '9')]
+        [DataRow("ok0", '0')]
+        public void FirstDigit(string inputString, char expected)
+        {
+            var actual = Solution.FirstDigit(inputString);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("cabca", 3)]
+        [DataRow("aba", 2)]
+        [DataRow("ccccccccccc", 1)]
+        [DataRow("bcaba", 3)]
+        [DataRow("codesignal", 10)]
+        public void DifferentSymbolsNaive(string s, int expected)
+        {
+            var actual = Solution.DifferentSymbolsNaive(s);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 2, 3, 5, 1, 6 }, 2, 8)]
+        [DataRow(new[] { 2, 4, 10, 1 }, 2, 14)]
+        [DataRow(new[] { 1, 3, 2, 4 }, 3, 9)]
+        [DataRow(new[] { 3, 2, 1, 1 }, 1, 3)]
+        [DataRow(new[] { 1, 3, 4, 2, 4, 2, 4 }, 4, 13)]
+        public void ArrayMaxConsecutiveSum(int[] inputArray, int k, int expected)
+        {
+            var actual = Solution.ArrayMaxConsecutiveSum(inputArray, k);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        #endregion
         /**************      The Core     **************/
 
         #region Core
@@ -614,9 +670,9 @@ namespace CodeSignalTest
         [DataRow(1000, 1000, 1000, 1000, 0)]
         public void SeatsInTheater(int nCols, int nRows, int col, int row, int expected)
         {
-            var result = Solution.SeatsInTheater(nCols, nRows, col, row);
+            var actual = Solution.SeatsInTheater(nCols, nRows, col, row);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -635,9 +691,9 @@ namespace CodeSignalTest
         [DataRow(9, 60, 54)]
         public void MaxMultiple(int divisor, int bound, int expected)
         {
-            var result = Solution.MaxMultiple(divisor, bound);
+            var actual = Solution.MaxMultiple(divisor, bound);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -650,9 +706,9 @@ namespace CodeSignalTest
         [DataRow(18, 5, 14)]
         public void CircleOfNumbers(int n, int firstNumber, int expected)
         {
-            var result = Solution.CircleOfNumbers(n, firstNumber);
+            var actual = Solution.CircleOfNumbers(n, firstNumber);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -666,9 +722,9 @@ namespace CodeSignalTest
         [DataRow(808, 14)]
         public void LateRide(int n, int expected)
         {
-            var result = Solution.LateRide(n);
+            var actual = Solution.LateRide(n);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestMethod]
@@ -680,9 +736,9 @@ namespace CodeSignalTest
         [DataRow(10, 10, 10, 8, 0)]
         public void PhoneCall(int min1, int min2_10, int min11, int s, int expected)
         {
-            var result = Solution.PhoneCall(min1, min2_10, min11, s);
+            var actual = Solution.PhoneCall(min1, min2_10, min11, s);
 
-            Assert.AreEqual(expected, result);
+            Assert.AreEqual(expected, actual);
         }
 
 
