@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -702,6 +704,81 @@ namespace CodeSignalSolution
                     max = sum;
             }
             return max;
+        }
+
+        #endregion
+
+        #region Dark Wilderness
+
+        public static int GrowingPlant(int upSpeed, int downSpeed, int desiredHeight)
+        {
+            int days = 1;
+            var speed = upSpeed - downSpeed;
+            while (upSpeed < desiredHeight)
+            {
+                upSpeed += speed;
+                days++;
+            }
+            return days;
+        }
+
+        public static int KnapsackLight(int value1, int weight1, int value2, int weight2, int maxW)
+        {
+            if (weight1 + weight2 <= maxW)
+            {
+                return value1 + value2;
+            }
+            if (weight1 <= maxW)
+            {
+                return weight2 <= maxW ? Math.Max(value1, value2) : value1;
+            }
+            else if (weight2 <= maxW)
+            {
+                return value2;
+            }
+            return 0;
+        }
+
+        public static string LongestDigitsPrefix(string inputString)
+        {
+            var prefix = string.Empty;
+            for (int i = 0; i < inputString.Length; i++)
+            {
+                if (!char.IsDigit(inputString[i]))
+                {
+                    break;
+                }
+                prefix += inputString[i].ToString();
+            }
+            return prefix;
+        }
+
+        public static int DigitDegree(int n)
+        {
+            if (n < 10)
+            {
+                return 0;
+            }
+            n = ReplaceNumber(n);
+            return 1 + DigitDegree(n);
+        }
+
+        private static int ReplaceNumber(int n)
+        {
+            var s = n.ToString();
+            var sum = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                sum += s[i] - '0';
+            }
+            return sum;
+        }
+
+        public static bool BishopAndPawn(string bishop, string pawn)
+        {
+            var x = bishop[0] - pawn[0];
+            var y = bishop[1] - pawn[1];
+            return Math.Abs(x) == Math.Abs(y);
         }
 
         #endregion

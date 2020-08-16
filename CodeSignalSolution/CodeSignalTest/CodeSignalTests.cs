@@ -658,6 +658,89 @@ namespace CodeSignalTest
         }
 
         #endregion
+
+        #region Dark Wilderness
+
+        [DataTestMethod]
+        [DataRow(100, 10, 910, 10)]
+        [DataRow(10, 9, 4, 1)]
+        [DataRow(5, 2, 7, 2)]
+        [DataRow(7, 3, 443, 110)]
+        [DataRow(6, 5, 10, 5)]
+        public void GrowingPlant(int upSpeed, int downSpeed, int desiredHeight, int expected)
+        {
+            var actual = Solution.GrowingPlant(upSpeed, downSpeed, desiredHeight);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [DataTestMethod]
+        [DataRow(10, 5, 6, 4, 8, 10)]
+        [DataRow(10, 5, 6, 4, 9, 16)]
+        [DataRow(5, 3, 7, 4, 6, 7)]
+        [DataRow(10, 2, 11, 3, 1, 0)]
+        [DataRow(15, 2, 20, 3, 2, 15)]
+        [DataRow(2, 5, 3, 4, 5, 3)]
+        [DataRow(4, 3, 3, 4, 4, 4)]
+        [DataRow(3, 5, 3, 8, 10, 3)]
+        public void KnapsackLight(int value1, int weight1, int value2, int weight2, int maxW, int expected)
+        {
+            var actual = Solution.KnapsackLight(value1, weight1, value2, weight2, maxW);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("123aa1", "123")]
+        [DataRow("0123456789", "0123456789")]
+        [DataRow("  3) always check for whitespaces", "")]
+        [DataRow("12abc34", "12")]
+        [DataRow("the output is 42", "")]
+        [DataRow("aaaaaaa", "")]
+        public void LongestDigitsPrefix(string inputString, string expected)
+        {
+            var actual = Solution.LongestDigitsPrefix(inputString);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow(5, 0)]
+        [DataRow(100, 1)]
+        [DataRow(91, 2)]
+        [DataRow(99, 2)]
+        [DataRow(1000000000, 1)]
+        [DataRow(9, 0)]
+        [DataRow(877, 2)]
+        [DataRow(777773, 3)]
+        [DataRow(304, 1)]
+        public void DigitDegree(int n, int expected)
+        {
+            var actual = Solution.DigitDegree(n);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("a1", "c3", true)]
+        [DataRow("h1", "h3", false)]
+        [DataRow("a5", "c3", true)]
+        [DataRow("g1", "f3", false)]
+        [DataRow("e7", "d6", true)]
+        [DataRow("e7", "a3", true)]
+        [DataRow("e3", "a7", true)]
+        [DataRow("a1", "h8", true)]
+        [DataRow("a1", "h7", false)]
+        [DataRow("h1", "a8", true)]
+        public void BishopAndPawn(string bishop, string pawn, bool expected)
+        {
+            var actual = Solution.BishopAndPawn(bishop, pawn);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Core
