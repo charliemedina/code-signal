@@ -741,6 +741,96 @@ namespace CodeSignalTest
 
         #endregion
 
+        #region Eruption of Light
+
+        [TestMethod]
+        [DataRow("bbbaacdafe", true)]
+        [DataRow("aabbb", false)]
+        [DataRow("bbc", false)]
+        [DataRow("bbbaa", false)]
+        [DataRow("abcdefghijklmnopqrstuvwxyzz", false)]
+        [DataRow("abcdefghijklmnopqrstuvwxyz", true)]
+        [DataRow("abcdefghijklmnopqrstuvwxyzqwertuiopasdfghjklxcvbnm", true)]
+        [DataRow("fyudhrygiuhdfeis", false)]
+        [DataRow("zaa", false)]
+        [DataRow("zyy", false)]
+        public void IsBeautifulString(string inputString, bool expected)
+        {
+            var actual = Solution.IsBeautifulString(inputString);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("prettyandsimple@example.com", "example.com")]
+        [DataRow("fully-qualified-domain@codesignal.com", "codesignal.com")]
+        [DataRow("\" \"@space.com", "space.com")]
+        [DataRow("someaddress@yandex.ru", "yandex.ru")]
+        [DataRow("\" \"@xample.org", "xample.org")]
+        [DataRow("\"much.more unusual\"@yahoo.com", "yahoo.com")]
+        [DataRow("\"very.unusual.@.unusual.com\"@usual.com", "usual.com")]
+        [DataRow("admin@mailserver2.ru", "mailserver2.ru")]
+        [DataRow("example-indeed@strange-example.com", "strange-example.com")]
+        [DataRow("very.common@gmail.com", "gmail.com")]
+        public void FindEmailDomain(string address, string expected)
+        {
+            var actual = Solution.FindEmailDomain(address);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("abcdc", "abcdcba")]
+        [DataRow("ababab", "abababa")]
+        [DataRow("abba", "abba")]
+        [DataRow("abaa", "abaaba")]
+        [DataRow("aaaaba", "aaaabaaaa")]
+        [DataRow("abc", "abcba")]
+        [DataRow("kebab", "kebabek")]
+        [DataRow("abccba", "abccba")]
+        [DataRow("abcabc", "abcabcbacba")]
+        [DataRow("cbdbedffcg", "cbdbedffcgcffdebdbc")]
+        public void BuildPalindrome(string st, string expected)
+        {
+            var actual = Solution.BuildPalindrome(st);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow(new[] { 2, 3, 5, 2 }, 3, 2)]
+        [DataRow(new[] { 1, 3, 3, 1, 1 }, 0, 0)]
+        [DataRow(new[] { 5, 1, 3, 4, 1 }, 0, 1)]
+        [DataRow(new[] { 1, 1, 1, 1 }, 1, 4)]
+        [DataRow(new[] { 1, 1, 1, 1 }, 0, 0)]
+        [DataRow(new[] { 3, 1, 1, 3, 1 }, 2, 2)]
+        public void ElectionsWinners(int[] votes, int k, int expected)
+        {
+            var actual = Solution.ElectionsWinners(votes, k);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("00-1B-63-84-45-E6", true)]
+        [DataRow("Z1-1B-63-84-45-E6", false)]
+        [DataRow("not a MAC-48 address", false)]
+        [DataRow("FF-FF-FF-FF-FF-FF", true)]
+        [DataRow("00-00-00-00-00-00", true)]
+        [DataRow("G0-00-00-00-00-00", false)]
+        [DataRow("02-03-04-05-06-07-", false)]
+        [DataRow("12-34-56-78-9A-BC", true)]
+        [DataRow("FF-FF-AB-CD-EA-BC", true)]
+        [DataRow("12-34-56-78-9A-BG", false)]
+        public void IsMAC48Address(string st, bool expected)
+        {
+            var actual = Solution.IsMAC48Address(st);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Core

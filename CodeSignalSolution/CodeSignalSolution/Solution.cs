@@ -782,5 +782,70 @@ namespace CodeSignalSolution
         }
 
         #endregion
+
+        #region Eruption of Light
+
+        public static bool IsBeautifulString(string inputString)
+        {
+            int[] count = new int[26];
+            foreach (char c in inputString)
+            {
+                count[c - 97]++;
+            }
+            for (int i = 0; i < 25; ++i)
+            {
+                if (count[i] < count[i + 1]) return false;
+            }
+            return true;
+        }
+
+        public static string FindEmailDomain(string address)
+        {
+            var index = address.LastIndexOf("@");
+
+            return address.Substring(index + 1);
+        }
+
+        public static string BuildPalindrome(string st)
+        {
+            var i = 0;
+            var len = st.Length;
+            while (IsPalindrome(st))
+            {
+                st = new string(st.Insert(len, st[i++].ToString()));
+            }
+            return st;
+        }
+
+        private static bool IsPalindrome(string st)
+        {
+            return st != string.Concat(st.Reverse());
+        }
+
+        public static int ElectionsWinners(int[] votes, int k)
+        {
+            var winners = 0;
+            var max = votes.Max();
+            winners = votes.Where(v => v + k > max).Count();
+            if (winners == 0 && k == 0)
+            {
+                return votes.Where(v => v == max).Count() == 1 ? 1 : 0;
+            }
+            return winners;
+        }
+
+        public static bool IsMAC48Address(string inputString)
+        {
+            var mac = inputString.Split('-');
+            return mac.Length == 6 && mac.All(c => c.Count() == 2 && IsHexadecimalDigits(c));
+        }
+
+        private static bool IsHexadecimalDigits(string s)
+        {
+            var digits = "0123456789ABCDEF";
+            return digits.Contains(s[0]) && digits.Contains(s[1]);
+        }
+
+        #endregion
     }
 }
