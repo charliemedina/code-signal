@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Text.RegularExpressions;
+using System.Text;
 
 namespace CodeSignalSolution
 {
@@ -845,6 +842,76 @@ namespace CodeSignalSolution
             var digits = "0123456789ABCDEF";
             return digits.Contains(s[0]) && digits.Contains(s[1]);
         }
+
+        #endregion
+
+        #region Rainbow of Clarity
+
+        public static bool IsDigit(char symbol)
+        {
+            return char.IsDigit(symbol);
+        }
+
+        public static string LineEncoding(string s)
+        {
+            var sb = new StringBuilder(s.Length);
+            var count = 1;
+
+            for (int i = 1; i <= s.Length; i++)
+            {
+                if (i < s.Length && s[i] == s[i - 1])
+                {
+                    count++;
+                }
+                else
+                {
+                    if (count > 1)
+                    {
+                        sb.Append(count);
+                    }
+                    sb.Append(s[i - 1]);
+                    count = 1;
+                }
+            }
+            return sb.ToString();
+        }
+
+        public static int ChessKnight(string cell)
+        {
+            var knightX = new int[] { -1, -2, -2, -1, 1, 2, 2, 1 };
+            var knightY = new int[] { -2, -1, 1, 2, 2, 1, -1, -2 };
+
+            var x = cell[0] - 'a';
+            var y = cell[1] - '1';
+
+            var numberOfMoves = 0;
+
+            for (int i = 0; i < knightX.Length; i++)
+            {
+                if (x + knightX[i] >= 0 && x + knightX[i] < 8 && y + knightY[i] >= 0 && y + knightY[i] < 8)
+                {
+                    numberOfMoves++;
+                }
+            }
+            return numberOfMoves;
+        }
+
+        public static int DeleteDigit(int n)
+        {
+            var max = int.MinValue;
+            var st = n.ToString();
+
+            for (int i = 0; i < st.Length; i++)
+            {
+                var temp = st.Remove(i, 1);
+                if (int.Parse(temp) > max)
+                {
+                    max = int.Parse(temp);
+                }
+            }
+            return max;
+        }
+
 
         #endregion
     }

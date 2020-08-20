@@ -831,6 +831,75 @@ namespace CodeSignalTest
 
         #endregion
 
+        #region Rainbow of Clarity
+
+        [TestMethod]
+        [DataRow('0', true)]
+        [DataRow('-', false)]
+        [DataRow('O', false)]
+        [DataRow('1', true)]
+        [DataRow('!', false)]
+        public void IsDigit(char st, bool expected)
+        {
+            var actual = Solution.IsDigit(st);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("aabbbc", "2a3bc")]
+        [DataRow("abbcabb", "a2bca2b")]
+        [DataRow("abcd", "abcd")]
+        [DataRow("zzzz", "4z")]
+        [DataRow("wwwwwwwawwwwwww", "7wa7w")]
+        [DataRow("ccccccccccccccc", "15c")]
+        [DataRow("qwertyuioplkjhg", "qwertyuioplkjhg")]
+        [DataRow("ssiiggkooo", "2s2i2gk3o")]
+        public void LineEncoding(string st, string expected)
+        {
+            var actual = Solution.LineEncoding(st);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("a1", 2)]
+        [DataRow("c2", 6)]
+        [DataRow("d4", 8)]
+        [DataRow("g6", 6)]
+        [DataRow("a3", 4)]
+        [DataRow("b7", 4)]
+        [DataRow("h8", 2)]
+        [DataRow("h6", 4)]
+        [DataRow("g8", 3)]
+        [DataRow("a5", 4)]
+        public void ChessKnight(string cell, int expected)
+        {
+            var actual = Solution.ChessKnight(cell);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow(152, 52)]
+        [DataRow(1001, 101)]
+        [DataRow(10, 1)]
+        [DataRow(222219, 22229)]
+        [DataRow(109, 19)]
+        [DataRow(222250, 22250)]
+        [DataRow(44435, 4445)]
+        [DataRow(12, 2)]
+        [DataRow(218616, 28616)]
+        [DataRow(861452, 86452)]
+        public void DeleteDigit(int cell, int expected)
+        {
+            var actual = Solution.DeleteDigit(cell);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        #endregion
+
         /**************      The Core     **************/
 
         #region Core
