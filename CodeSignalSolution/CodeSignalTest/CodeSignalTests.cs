@@ -983,7 +983,53 @@ namespace CodeSignalTest
             Assert.AreEqual(expected, actual);
         }
 
+        [TestMethod]
+        [DataRow("Ready, steady, go!", "steady")]
+        [DataRow("Ready[[[, steady, go!", "steady")]
+        [DataRow("ABCd", "ABCd")]
+        [DataRow("To be or not to be", "not")]
+        [DataRow("You are the best!!!!!!!!!!!! CodeFighter ever!", "CodeFighter")]
+        public void LongestWord(string st, string expected)
+        {
+            var actual = Solution.LongestWord(st);
 
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("13:58", true)]
+        [DataRow("25:51", false)]
+        [DataRow("02:76", false)]
+        [DataRow("24:00", false)]
+        [DataRow("02:61", false)]
+        [DataRow("27:00", false)]
+        [DataRow("19:66", false)]
+        [DataRow("12:31", true)]
+        [DataRow("25:73", false)]
+        [DataRow("09:56", true)]
+        [DataRow("03:29", true)]
+        public void ValidTime(string st, bool expected)
+        {
+            var actual = Solution.ValidTime(st);
+
+            Assert.AreEqual(actual, expected);
+        }
+
+        [TestMethod]
+        [DataRow("2 apples, 12 oranges", 14)]
+        [DataRow("123450", 123450)]
+        [DataRow("Your payment method is invalid", 0)]
+        [DataRow("no digits at all", 0)]
+        [DataRow("there are some (12) digits 5566 in this 770 string 239", 6587)]
+        [DataRow("42+781", 823)]
+        [DataRow("abc abc 4 abc 0 abc", 4)]
+        [DataRow("abcdefghijklmnopqrstuvwxyz1AbCdEfGhIjKlMnOpqrstuvwxyz23,74 -", 98)]
+        public void SumUpNumbers(string st, int expected)
+        {
+            var actual = Solution.SumUpNumbers(st);
+
+            Assert.AreEqual(actual, expected);
+        }
 
 
         #endregion

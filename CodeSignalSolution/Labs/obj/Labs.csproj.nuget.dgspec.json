@@ -1,32 +1,29 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj": {}
+    "/home/tiendeo/code-signal/CodeSignalSolution/Labs/Labs.csproj": {}
   },
   "projects": {
-    "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj": {
+    "/home/tiendeo/code-signal/CodeSignalSolution/Labs/Labs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj",
+        "projectUniqueName": "/home/tiendeo/code-signal/CodeSignalSolution/Labs/Labs.csproj",
         "projectName": "Labs",
-        "projectPath": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\Labs.csproj",
-        "packagesPath": "C:\\Users\\charl\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\code-signal\\CodeSignalSolution\\Labs\\obj\\",
+        "projectPath": "/home/tiendeo/code-signal/CodeSignalSolution/Labs/Labs.csproj",
+        "packagesPath": "/home/tiendeo/.nuget/packages/",
+        "outputPath": "/home/tiendeo/code-signal/CodeSignalSolution/Labs/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "/usr/share/dotnet/sdk/NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\charl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/tiendeo/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/nuget": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -56,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.407/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CodeSignalSolution
 {
@@ -912,6 +913,27 @@ namespace CodeSignalSolution
             return max;
         }
 
+        public static string LongestWord(string text)
+        {
+            return Regex.Split(text, @"[^a-zA-Z]+").OrderByDescending(_ => _.Length).First();
+        }
+
+        public static bool ValidTime(string time)
+        {
+            return TimeSpan.TryParse(time, out TimeSpan result);
+        }
+
+        public static bool ValidTimeWithRegex(string time)
+        {
+            var reg = "([01]\\d|2[0-3]):[0-5]\\d";
+            return Regex.IsMatch(time, reg);
+        }
+
+        public static int SumUpNumbers(string inputString)
+        {
+            var matches = Regex.Matches(inputString, @"\d+");
+            return matches.Select(m => int.Parse(m.Value)).Sum();
+        }
 
         #endregion
     }
